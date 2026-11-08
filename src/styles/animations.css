@@ -1,0 +1,128 @@
+/* Animation Utilities & Keyframes */
+
+/* Idle Bobbing Animation for Active Drink */
+.is-floating {
+  animation: idleFloat 4s ease-in-out infinite;
+}
+
+.is-shadow-pulsing {
+  animation: shadowPulse 4s ease-in-out infinite;
+}
+
+@keyframes idleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes shadowPulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.22;
+  }
+  50% {
+    transform: translateX(-50%) scale(0.92);
+    opacity: 0.15;
+  }
+}
+
+/* Line Reveal Masks */
+.line-mask {
+  overflow: hidden;
+  display: block;
+}
+
+.line-mask-inner {
+  display: block;
+  will-change: transform;
+}
+
+/* Photo Clip-Path Reveal */
+.clip-reveal-frame {
+  overflow: hidden;
+  clip-path: inset(100% 0 0 0);
+  will-change: clip-path;
+}
+
+.clip-reveal-img {
+  transform: scale(1.15);
+  will-change: transform;
+}
+
+/* Drawing Icon Strokes */
+.draw-icon path,
+.draw-icon circle,
+.draw-icon rect,
+.draw-icon line {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 900ms var(--ease-reveal);
+}
+
+.draw-icon.is-preparing path,
+.draw-icon.is-preparing circle,
+.draw-icon.is-preparing rect,
+.draw-icon.is-preparing line {
+  stroke-dashoffset: 120;
+}
+
+.draw-icon.is-drawn path,
+.draw-icon.is-drawn circle,
+.draw-icon.is-drawn rect,
+.draw-icon.is-drawn line {
+  stroke-dashoffset: 0;
+}
+
+/* Rotating SVG Badge */
+.spin-clockwise {
+  animation: spinForever 18s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes spinForever {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Clean transition helpers */
+.fade-in {
+  opacity: 1;
+  transition: opacity 500ms var(--ease-reveal);
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+/* Reduced Motion Mode Overrides */
+@media (prefers-reduced-motion: reduce) {
+  .is-floating {
+    animation: none !important;
+  }
+  .is-shadow-pulsing {
+    animation: none !important;
+  }
+  .spin-clockwise {
+    animation: none !important;
+  }
+  .clip-reveal-frame {
+    clip-path: none !important;
+  }
+  .clip-reveal-img {
+    transform: none !important;
+  }
+  .draw-icon path,
+  .draw-icon circle,
+  .draw-icon rect,
+  .draw-icon line {
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+}

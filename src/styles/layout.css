@@ -1,0 +1,106 @@
+/* Layout, Container & 12-Column Grid System */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
+.section {
+  position: relative;
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+  overflow: hidden;
+}
+
+/* Background rhythm variants */
+.section-bg-cream {
+  background-color: var(--cream);
+}
+
+.section-bg-sand {
+  background-color: var(--sand);
+}
+
+.section-bg-espresso {
+  background-color: var(--espresso);
+  color: var(--cream);
+}
+
+.section-bg-espresso h2,
+.section-bg-espresso h3 {
+  color: var(--cream);
+}
+
+.section-bg-espresso p {
+  color: #D3C4B3;
+}
+
+.section-bg-espresso .divider {
+  background-color: rgba(246, 240, 231, 0.15);
+}
+
+.section-bg-espresso .section-label {
+  color: #D3C4B3;
+}
+
+/* 12-Column Grid */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+  row-gap: 32px;
+}
+
+/* Grid Column Helper Classes */
+.col-12 { grid-column: span 12; }
+.col-10 { grid-column: span 10; }
+.col-8  { grid-column: span 8; }
+.col-7  { grid-column: span 7; }
+.col-6  { grid-column: span 6; }
+.col-5  { grid-column: span 5; }
+.col-4  { grid-column: span 4; }
+.col-3  { grid-column: span 3; }
+
+/* Asymmetrical Alignment Helpers */
+.align-center {
+  align-items: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+/* Responsive Grid Adapters */
+@media (max-width: 1200px) {
+  .grid-12 {
+    column-gap: 20px;
+    row-gap: 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  .col-lg-12 { grid-column: span 12 !important; }
+  .col-lg-6  { grid-column: span 12 !important; }
+  .col-lg-5  { grid-column: span 12 !important; }
+  .col-lg-7  { grid-column: span 12 !important; }
+  .col-lg-4  { grid-column: span 6 !important; }
+}
+
+@media (max-width: 600px) {
+  .grid-12 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+}
