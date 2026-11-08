@@ -203,16 +203,19 @@
    2. Hero Section (Transparent PNG Cutouts)
    ========================================================================== */
 .hero-section {
-  padding-top: clamp(120px, 16vw, 190px);
-  padding-bottom: clamp(60px, 8vw, 100px);
+  padding-top: clamp(100px, 12vw, 150px);
+  padding-bottom: 0;
   background-color: var(--cream);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-heading-wrap {
   position: relative;
-  margin-bottom: 24px;
+  text-align: center;
+  margin: 0 auto clamp(16px, 2.5vw, 24px);
 }
 
 .hero-heading {
@@ -239,11 +242,13 @@
 
 .hero-script-accent {
   position: absolute;
-  right: -10px;
+  right: -15px;
   bottom: -18px;
-  font-size: clamp(38px, 6vw, 92px);
+  font-size: clamp(38px, 6vw, 88px);
   color: var(--terracotta);
   white-space: nowrap;
+  font-family: var(--font-script);
+  transform: rotate(-6deg);
 }
 
 @media (max-width: 600px) {
@@ -252,38 +257,40 @@
     right: auto;
     bottom: auto;
     display: block;
-    margin-top: -10px;
+    margin-top: -6px;
     margin-left: 20px;
-    font-size: 42px;
+    font-size: 38px;
   }
 }
 
 .hero-subline {
-  font-size: clamp(17px, 2vw, 22px);
+  font-size: clamp(16px, 1.8vw, 20px);
   line-height: 1.5;
   color: var(--mocha);
-  max-width: 540px;
-  margin-bottom: 36px;
+  max-width: 520px;
+  margin: 0 auto clamp(24px, 3.5vw, 36px);
+  text-align: center;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: clamp(48px, 6vw, 72px);
+  margin: 0 auto clamp(28px, 4vw, 48px);
 }
 
-/* Three Cutouts Composition */
+/* Three Cutouts Composition: tight, overlapping cluster anchored to bottom */
 .hero-cups-stage {
   position: relative;
   width: 100%;
-  max-width: 920px;
-  margin: 36px auto 0;
+  max-width: 880px;
+  margin: 0 auto;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: clamp(20px, 5vw, 64px);
+  line-height: 0;
 }
 
 .hero-cup-wrap {
@@ -291,51 +298,54 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  line-height: 0;
 }
 
 .hero-cup-wrap.cup-left {
-  width: clamp(170px, 20vw, 240px);
+  width: clamp(230px, 27vw, 340px);
   z-index: 1;
+  margin-right: clamp(-85px, -8vw, -125px);
+  margin-bottom: clamp(-18px, -2vw, -28px);
 }
 
 .hero-cup-wrap.cup-middle {
-  width: clamp(230px, 28vw, 330px);
+  width: clamp(280px, 34vw, 420px);
   z-index: 2;
-  margin-bottom: -10px;
+  margin-bottom: 0;
 }
 
 .hero-cup-wrap.cup-right {
-  width: clamp(170px, 20vw, 240px);
+  width: clamp(230px, 27vw, 340px);
   z-index: 1;
+  margin-left: clamp(-85px, -8vw, -125px);
+  margin-bottom: clamp(-18px, -2vw, -28px);
 }
 
 .hero-cup-img {
   width: 100%;
   height: auto;
-  max-height: 440px;
+  display: block;
   object-fit: contain;
-  filter: drop-shadow(0 20px 30px rgba(42, 27, 18, 0.12));
-}
-
-.hero-cup-shadow {
-  width: 75%;
-  height: 16px;
-  background: radial-gradient(ellipse at center, rgba(42, 27, 18, 0.22) 0%, rgba(42, 27, 18, 0) 72%);
-  border-radius: 50%;
-  margin-top: -8px;
-  filter: blur(5px);
+  vertical-align: bottom;
+  filter: drop-shadow(0 20px 30px rgba(42, 27, 18, 0.15));
 }
 
 @media (max-width: 600px) {
   .hero-cups-stage {
-    gap: 12px;
-  }
-  .hero-cup-wrap.cup-left,
-  .hero-cup-wrap.cup-right {
-    display: none;
+    max-width: 380px;
   }
   .hero-cup-wrap.cup-middle {
-    width: 250px;
+    width: 220px;
+  }
+  .hero-cup-wrap.cup-left {
+    width: 170px;
+    margin-right: -65px;
+    margin-bottom: -15px;
+  }
+  .hero-cup-wrap.cup-right {
+    width: 170px;
+    margin-left: -65px;
+    margin-bottom: -15px;
   }
 }
 
@@ -500,21 +510,21 @@
 .menu-ellipse-stage {
   position: relative;
   width: 100%;
-  height: clamp(290px, 38vh, 390px);
+  height: clamp(320px, 42vh, 420px);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: visible;
-  margin: 12px 0 6px;
+  margin: 16px 0 8px;
 }
 
 /* Radial Spotlight behind active drink */
 .menu-spotlight {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
-  width: 460px;
-  height: 320px;
+  width: 440px;
+  height: 300px;
   transform: translate(-50%, -50%);
   background: radial-gradient(ellipse at center, #F3EADB 0%, rgba(243, 234, 219, 0) 70%);
   pointer-events: none;
@@ -525,14 +535,14 @@
 /* Single Floor Shadow under active drink */
 .menu-floor-shadow {
   position: absolute;
-  bottom: 18px;
+  top: calc(40% + 124px);
   left: 50%;
-  width: 190px;
+  width: 170px;
   height: 14px;
-  background: radial-gradient(ellipse at center, rgba(42, 27, 18, 0.24) 0%, rgba(42, 27, 18, 0) 70%);
+  background: radial-gradient(ellipse at center, rgba(42, 27, 18, 0.22) 0%, rgba(42, 27, 18, 0) 70%);
   border-radius: 50%;
   transform: translateX(-50%);
-  filter: blur(8px);
+  filter: blur(7px);
   pointer-events: none;
   z-index: 1;
   transition: transform 100ms linear;
@@ -541,12 +551,12 @@
 /* Cutout Drink Items sitting on shallow ellipse */
 .menu-drink-item {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
-  width: clamp(180px, 22vw, 260px);
-  height: clamp(240px, 32vh, 340px);
+  width: clamp(160px, 20vw, 230px);
+  height: clamp(210px, 28vh, 260px);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   user-select: none;
   cursor: pointer;
@@ -568,7 +578,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 18px;
+  margin-top: 24px;
   position: relative;
   z-index: 10;
 }

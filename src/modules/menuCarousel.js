@@ -238,8 +238,8 @@ export function initMenuCarousel() {
     const isMobile = window.innerWidth <= 600;
 
     // Tune ellipse radiuses inside the showcase card
-    const rx = isMobile ? 0.35 * stageWidth : 0.38 * stageWidth;
-    const ry = isMobile ? 0.18 * stageHeight : 0.22 * stageHeight;
+    const rx = isMobile ? 0.34 * stageWidth : 0.38 * stageWidth;
+    const ry = isMobile ? 0.16 * stageHeight : 0.19 * stageHeight;
     const maxOffset = isMobile ? 1.6 : 2.4;
 
     drinkElements.forEach((el, i) => {
@@ -259,9 +259,9 @@ export function initMenuCarousel() {
       const theta = o * THETA_STEP;
       const x = Math.sin(theta) * rx;
       const y = (Math.cos(theta) - 1) * ry; // Recedes smoothly upward
-      const scale = 0.5 + 0.5 * Math.cos(theta);
+      const scale = 0.52 + 0.48 * Math.cos(theta);
       const opacity = Math.min(1, Math.max(0, 0.2 + 0.8 * Math.cos(theta)));
-      const blur = (1 - Math.cos(theta)) * 6;
+      const blur = (1 - Math.cos(theta)) * 5;
       const zIndex = Math.round(Math.cos(theta) * 100);
 
       el.style.transform = `translate3d(calc(-50% + ${x.toFixed(2)}px), calc(-50% + ${y.toFixed(2)}px), 0) scale(${scale.toFixed(3)})`;

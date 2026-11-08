@@ -71,7 +71,11 @@ Tokens include:
 
 ### Swapping Images and Drink Cutouts
 All images live in `public/images/`:
-- **Transparent PNG Cutouts (tallest side 1000px, centered):**
+- **Hero Cutout Cluster (Transparent 2x PNG cutouts with ice & condensation):**
+  - `hero-cup-center.png` (Iced Caramel Latte, foreground center)
+  - `hero-cup-left.png` (Iced Chocolate Frappe, background left)
+  - `hero-cup-right.png` (Iced Matcha Latte, background right)
+- **Menu Carousel Cutouts (Transparent PNG cutouts, normalized visual height, centered):**
   - `cutout-caramel-latte.png`
   - `cutout-cold-brew.png`
   - `cutout-matcha-latte.png`
@@ -85,6 +89,10 @@ All images live in `public/images/`:
   - `visit-cafe-interior.webp` (1200px wide)
   - `gallery-1.webp` through `gallery-6.webp` (900px wide)
   - `og-image.jpg` (1200 × 630 Open Graph preview)
+
+### Image Processing Scripts
+- `process_all_images.py`: Automated download, background removal with rembg, and normalization for stock photos.
+- `compress_pngs.py`: 256-color fast-octree alpha quantization script that shrinks total images folder weight to ~2.3 MB.
 
 ---
 

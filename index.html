@@ -36,8 +36,7 @@
     />
 
     <!-- Preload Hero Cutout Assets with High Priority -->
-    <link rel="preload" as="image" href="/images/cutout-matcha-latte.png" type="image/png" fetchpriority="high" />
-    <link rel="preload" as="image" href="/images/cutout-caramel-latte.png" type="image/png" />
+    <link rel="preload" as="image" href="/images/hero-cup-center.png" type="image/png" fetchpriority="high" />
 
     <!-- Core Styles -->
     <link rel="stylesheet" href="/src/styles/tokens.css" />
@@ -155,46 +154,43 @@
             </a>
           </div>
 
-          <!-- Hero Cutouts Composition (Left, Middle largest, Right) -->
+          <!-- Hero Cutouts Composition (Left, Middle largest foreground, Right) -->
           <div class="hero-cups-stage" id="hero-cups-stage">
             <div class="hero-cup-wrap cup-left" id="hero-cup-left">
               <img
-                src="/images/cutout-caramel-latte.png"
-                alt="Iced Caramel Latte cutout in clear glass"
+                src="/images/hero-cup-left.png"
+                alt="Iced chocolate mocha frappe with ice in clear takeaway cup"
                 class="hero-cup-img"
-                width="260"
-                height="325"
+                width="360"
+                height="324"
                 loading="eager"
                 decoding="async"
               />
-              <div class="hero-cup-shadow" aria-hidden="true"></div>
             </div>
 
             <div class="hero-cup-wrap cup-middle" id="hero-cup-middle">
               <img
-                src="/images/cutout-matcha-latte.png"
-                alt="Layered ceremonial iced matcha latte cutout"
+                src="/images/hero-cup-center.png"
+                alt="Iced caramel latte with crystal ice cubes and condensation droplets"
                 class="hero-cup-img"
-                width="340"
-                height="425"
+                width="360"
+                height="324"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
               />
-              <div class="hero-cup-shadow" aria-hidden="true"></div>
             </div>
 
             <div class="hero-cup-wrap cup-right" id="hero-cup-right">
               <img
-                src="/images/cutout-mango-cooler.png"
-                alt="Chilled mango cooler cutout with mint and lime"
+                src="/images/hero-cup-right.png"
+                alt="Layered ceremonial iced matcha latte with ice in clear takeaway cup"
                 class="hero-cup-img"
-                width="260"
-                height="325"
+                width="364"
+                height="324"
                 loading="eager"
                 decoding="async"
               />
-              <div class="hero-cup-shadow" aria-hidden="true"></div>
             </div>
           </div>
         </div>

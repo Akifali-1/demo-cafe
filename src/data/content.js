@@ -48,24 +48,24 @@ export const content = {
     },
     cups: [
       {
-        id: "hero-latte",
-        src: "/images/cutout-caramel-latte.png",
-        alt: "Iced Caramel Latte cutout in a clear glass",
-        name: "Iced Caramel Latte",
+        id: "hero-left",
+        src: "/images/hero-cup-left.png",
+        alt: "Iced chocolate mocha frappe with ice cubes in clear takeaway cup",
+        name: "Iced Chocolate Mocha",
         speed: 0.08
       },
       {
-        id: "hero-matcha",
-        src: "/images/cutout-matcha-latte.png",
-        alt: "Layered ceremonial iced matcha latte cutout",
-        name: "Iced Matcha Latte",
+        id: "hero-middle",
+        src: "/images/hero-cup-center.png",
+        alt: "Iced caramel latte with crystal ice cubes and condensation droplets",
+        name: "Iced Caramel Latte",
         speed: 0.16
       },
       {
-        id: "hero-mango",
-        src: "/images/cutout-mango-cooler.png",
-        alt: "Chilled mango cooler cutout with mint and lime",
-        name: "Mango Cooler",
+        id: "hero-right",
+        src: "/images/hero-cup-right.png",
+        alt: "Layered ceremonial iced matcha latte with ice cubes in clear takeaway cup",
+        name: "Iced Matcha Latte",
         speed: 0.05
       }
     ]
