@@ -329,3 +329,14 @@ export const content = {
     bottomLine: "2026 Demo Cafe. Sample website."
   }
 };
+
+// Export named constants for modules
+export const BRAND = {
+  ...content.brand,
+  whatsappDefaultMessage: "Hi Demo Cafe! I would like to order fresh iced coffee."
+};
+
+export const MENU_ITEMS = content.menu.items.map(item => ({
+  ...item,
+  image: item.cutout || item.image
+}));

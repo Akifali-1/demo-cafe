@@ -126,22 +126,24 @@
     <!-- Main Content -->
     <main id="main-content">
       <!-- 1. Hero Section -->
-      <section class="hero-section" id="hero" aria-labelledby="hero-title">
-        <div class="container">
-          <div class="hero-heading-wrap">
-            <h1 class="hero-heading" id="hero-title">
+      <section class="hero hero-section" id="hero" aria-labelledby="hero-title">
+        <div class="hero__bg-glow" aria-hidden="true"></div>
+        <div class="container hero__inner">
+          <div class="hero__eyebrow section-label">00 / Summer Edition</div>
+          <div class="hero__headline-wrap hero-heading-wrap">
+            <h1 class="hero__headline hero-heading" id="hero-title">
               <span class="hero-heading-line">
                 <span class="hero-heading-line-inner">ICED COFFEE</span>
               </span>
-              <span class="script-accent hero-script-accent">summer edition</span>
+              <span class="hero__script script-accent hero-script-accent">summer edition</span>
             </h1>
           </div>
-          <p class="hero-subline">
+          <p class="hero__sub hero-subline">
             Cold drinks brewed fresh to order, in the middle of the city.
           </p>
 
-          <div class="hero-actions">
-            <a href="#menu" class="btn btn-primary hero-btn-magnetic">
+          <div class="hero__ctas hero-actions">
+            <a href="#menu" class="btn btn-primary hero-btn-magnetic" data-wa-order data-wa-message="Hi Demo Cafe! I would like to order fresh iced coffee.">
               <span class="btn-content">
                 View the menu
                 <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -155,8 +157,9 @@
           </div>
 
           <!-- Hero Cutouts Composition (Left, Middle largest foreground, Right) -->
-          <div class="hero-cups-stage" id="hero-cups-stage">
-            <div class="hero-cup-wrap cup-left" id="hero-cup-left">
+          <div class="hero__stage hero-cups-stage" id="hero-cups-stage">
+            <div class="hero__stage-shadow" aria-hidden="true"></div>
+            <div class="hero__cup hero__cup--left hero-cup-wrap cup-left" id="hero-cup-left">
               <img
                 src="/images/hero-cup-left.png"
                 alt="Iced chocolate mocha frappe with ice in clear takeaway cup"
@@ -168,7 +171,7 @@
               />
             </div>
 
-            <div class="hero-cup-wrap cup-middle" id="hero-cup-middle">
+            <div class="hero__cup hero__cup--center hero-cup-wrap cup-middle" id="hero-cup-middle">
               <img
                 src="/images/hero-cup-center.png"
                 alt="Iced caramel latte with crystal ice cubes and condensation droplets"
@@ -181,7 +184,7 @@
               />
             </div>
 
-            <div class="hero-cup-wrap cup-right" id="hero-cup-right">
+            <div class="hero__cup hero__cup--right hero-cup-wrap cup-right" id="hero-cup-right">
               <img
                 src="/images/hero-cup-right.png"
                 alt="Layered ceremonial iced matcha latte with ice in clear takeaway cup"
@@ -274,73 +277,46 @@
                     <span class="script-accent menu-script-accent">favourite</span>
                   </h2>
                 </div>
-                <div class="menu-counter" id="menu-counter" aria-hidden="true">01 / 08</div>
+                <div class="menu-counter" id="menu-counter" data-carousel-counter aria-hidden="true">01 / 08</div>
               </div>
 
-              <!-- Shallow Ellipse Stage with Cutouts -->
-              <div class="menu-ellipse-stage" id="menu-ellipse-stage">
-                <!-- Radial Spotlight behind active drink -->
-                <div class="menu-spotlight" aria-hidden="true"></div>
+              <!-- Shallow Ellipse Stage where all cups live and GSAP positions them -->
+              <div class="carousel__stage menu-ellipse-stage" id="menu-ellipse-stage" data-carousel-stage>
+                <!-- Radial Spotlight / Stage Glow behind active drink -->
+                <div class="carousel__stage-glow menu-spotlight" aria-hidden="true"></div>
 
-                <!-- Floor Shadow under active drink -->
-                <div class="menu-floor-shadow" id="menu-floor-shadow" aria-hidden="true"></div>
-
-                <!-- Drink Cutout Items container (statically rendered for no-JS, hydrated by menuCarousel.js) -->
-                <div id="menu-items-container" style="position: absolute; inset: 0;">
-                  <div class="menu-drink-item" id="drink-item-0" role="button" aria-label="Iced Caramel Latte, 220 rupees" tabindex="0">
-                    <img src="/images/cutout-caramel-latte.png" alt="Iced Caramel Latte in glass with golden caramel swirl" class="menu-drink-cutout" width="240" height="310" loading="eager" decoding="async" />
-                  </div>
-                  <div class="menu-drink-item" id="drink-item-1" role="button" aria-label="Cold Brew, 230 rupees" tabindex="0">
-                    <img src="/images/cutout-cold-brew.png" alt="Cold Brew coffee in tall glass on ice" class="menu-drink-cutout" width="240" height="310" loading="eager" decoding="async" />
-                  </div>
-                  <div class="menu-drink-item" id="drink-item-2" role="button" aria-label="Iced Matcha Latte, 250 rupees" tabindex="0">
-                    <img src="/images/cutout-matcha-latte.png" alt="Ceremonial iced matcha latte with creamy oat milk layers" class="menu-drink-cutout" width="240" height="310" loading="eager" decoding="async" />
-                  </div>
-                  <div class="menu-drink-item" id="drink-item-3" role="button" aria-label="Mango Cooler, 190 rupees" tabindex="0">
-                    <img src="/images/cutout-mango-cooler.png" alt="Refreshing ripe mango cooler with fresh mint leaves" class="menu-drink-cutout" width="240" height="310" loading="lazy" decoding="async" />
-                  </div>
-                  <div class="menu-drink-item" id="drink-item-4" role="button" aria-label="Vanilla Iced Coffee, 200 rupees" tabindex="0">
-                    <img src="/images/cutout-vanilla-iced-coffee.png" alt="Close-up of glass of vanilla iced coffee with condensed milk layers" class="menu-drink-cutout" width="240" height="310" loading="lazy" decoding="async" />
-                  </div>
-                  <div class="menu-drink-item" id="drink-item-5" role="button" aria-label="Iced Americano, 160 rupees" tabindex="0">
-                    <img src="/images/cutout-iced-americano.png" alt="Glass of bold iced americano coffee with clear ice cubes" class="menu-drink-cutout" width="240" height="310" loading="lazy" decoding="async" />
-                  </div>
-                  <div class="menu-drink-item" id="drink-item-6" role="button" aria-label="Cold Chocolate, 210 rupees" tabindex="0">
-                    <img src="/images/cutout-cold-chocolate.png" alt="Chilled artisanal dark iced chocolate with whipped cream and cocoa dusting" class="menu-drink-cutout" width="240" height="310" loading="lazy" decoding="async" />
-                  </div>
-                  <div class="menu-drink-item" id="drink-item-7" role="button" aria-label="Lemon Iced Tea, 150 rupees" tabindex="0">
-                    <img src="/images/cutout-lemon-iced-tea.png" alt="Cold black tea served in clear highball glass with lemon garnish" class="menu-drink-cutout" width="240" height="310" loading="lazy" decoding="async" />
-                  </div>
-                </div>
+                <!-- Stage Floor Shadow under active drink -->
+                <div class="carousel__stage-floor menu-floor-shadow" id="menu-floor-shadow" aria-hidden="true"></div>
               </div>
 
               <!-- Card Bottom Controls: Left Arrow | Info Panel | Right Arrow -->
-              <div class="menu-card-bottom">
-                <div class="menu-nav-row">
-                  <button class="carousel-btn" id="menu-prev-btn" aria-label="Previous drink">
+              <div class="carousel__controls menu-card-bottom">
+                <div class="menu-nav-row" style="width: 100%; display: flex; align-items: center; justify-content: space-between;">
+                  <button class="carousel-btn" id="menu-prev-btn" data-carousel-prev aria-label="Previous drink">
                     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M15 18l-6-6 6-6" />
                     </svg>
                   </button>
 
                   <!-- Active Drink Info Center (Live Region) -->
-                  <div class="menu-info-center" id="menu-info-center" aria-live="polite">
+                  <div class="carousel__meta menu-info-center" id="menu-info-center" aria-live="polite">
                     <div class="menu-active-name-wrap">
-                      <span class="menu-active-name" id="menu-active-name">Iced Caramel Latte</span>
+                      <span class="menu-active-name" id="menu-active-name" data-carousel-title>Iced Caramel Latte</span>
                     </div>
                     <div class="menu-active-desc-wrap">
-                      <span class="menu-active-desc" id="menu-active-desc">
+                      <span class="menu-active-desc" id="menu-active-desc" data-carousel-desc>
                         Double espresso, cold milk, house caramel, poured over ice.
                       </span>
                     </div>
                     <div class="menu-sub-actions">
-                      <span class="menu-price-pill" id="menu-active-price">₹220</span>
+                      <span class="menu-price-pill" id="menu-active-price" data-carousel-price>₹220</span>
                       <a
                         href="https://wa.me/919876543210?text=Hi%2C%20I%20would%20like%20a%20Iced%20Caramel%20Latte"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="menu-order-link"
                         id="menu-active-order"
+                        data-carousel-order
                       >
                         Order this
                         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
@@ -350,7 +326,7 @@
                     </div>
                   </div>
 
-                  <button class="carousel-btn" id="menu-next-btn" aria-label="Next drink">
+                  <button class="carousel-btn" id="menu-next-btn" data-carousel-next aria-label="Next drink">
                     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M9 18l6-6-6-6" />
                     </svg>
@@ -358,8 +334,13 @@
                 </div>
 
                 <!-- Clickable Indicator Dots -->
-                <div class="menu-card-dots" id="menu-dots" role="tablist" aria-label="Select drink"></div>
+                <div class="carousel__dots menu-card-dots" id="menu-dots" data-carousel-dots role="tablist" aria-label="Select drink"></div>
               </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
             </div>
 
           </div>

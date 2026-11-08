@@ -42,7 +42,21 @@
   /* Motion Timing & Easing */
   --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-carousel: cubic-bezier(0.65, 0, 0.35, 1);
-  --duration-hover: 450ms;
+  /* Design Tokens Aliases */
+  --nav-h: 80px;
+  --ink: var(--espresso);
+  --ink-muted: var(--mocha);
+  --accent: var(--terracotta);
+  --border: var(--line);
+  --container-pad: var(--container-px);
+  --fs-md: 18px;
+  --s-1: 8px;
+  --s-2: 12px;
+  --s-3: 16px;
+  --s-4: 24px;
+  --s-5: 36px;
+  --s-6: 48px;
+  --s-7: 64px;
 }
 
 @media (max-width: 600px) {

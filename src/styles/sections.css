@@ -202,151 +202,158 @@
 /* ==========================================================================
    2. Hero Section (Transparent PNG Cutouts)
    ========================================================================== */
-.hero-section {
-  padding-top: clamp(100px, 12vw, 150px);
-  padding-bottom: 0;
-  background-color: var(--cream);
+.hero {
   position: relative;
-  overflow: hidden;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
-}
-
-.hero-heading-wrap {
-  position: relative;
-  text-align: center;
-  margin: 0 auto clamp(16px, 2.5vw, 24px);
-}
-
-.hero-heading {
-  font-family: var(--font-display);
-  font-size: var(--fs-h1);
-  line-height: var(--lh-h1);
-  letter-spacing: -0.02em;
-  font-weight: 700;
-  color: var(--espresso);
-  text-transform: uppercase;
-  margin: 0;
-  position: relative;
-  display: inline-block;
-}
-
-.hero-heading-line {
+  justify-content: space-between;
+  padding-top: calc(var(--nav-h) + var(--s-6));
+  padding-bottom: 0;
   overflow: hidden;
-  display: block;
+  border-bottom: 1px solid var(--border);
 }
 
-.hero-heading-line-inner {
-  display: block;
-}
-
-.hero-script-accent {
+.hero__bg-glow {
   position: absolute;
-  right: -15px;
-  bottom: -18px;
-  font-size: clamp(38px, 6vw, 88px);
-  color: var(--terracotta);
-  white-space: nowrap;
-  font-family: var(--font-script);
-  transform: rotate(-6deg);
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(50% 45% at 50% 62%, rgba(239, 224, 198, 0.85) 0%, rgba(246, 239, 228, 0) 70%),
+    radial-gradient(35% 30% at 50% 75%, rgba(196, 90, 42, 0.10) 0%, transparent 70%);
+  z-index: 0;
 }
 
-@media (max-width: 600px) {
-  .hero-script-accent {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    display: block;
-    margin-top: -6px;
-    margin-left: 20px;
-    font-size: 38px;
-  }
-}
-
-.hero-subline {
-  font-size: clamp(16px, 1.8vw, 20px);
-  line-height: 1.5;
-  color: var(--mocha);
-  max-width: 520px;
-  margin: 0 auto clamp(24px, 3.5vw, 36px);
-  text-align: center;
-}
-
-.hero-actions {
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin: 0 auto clamp(28px, 4vw, 48px);
+  text-align: center;
+  flex: 1;
+  justify-content: space-between;
 }
 
-/* Three Cutouts Composition: tight, overlapping cluster anchored to bottom */
-.hero-cups-stage {
+.hero__eyebrow {
+  margin-bottom: var(--s-3);
+}
+
+.hero__headline-wrap {
+  position: relative;
+  margin-top: var(--s-2);
+  margin-bottom: var(--s-4);
+}
+
+.hero__headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.2rem, 10.5vw, 8.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  user-select: none;
+}
+
+.hero__script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+  color: var(--accent);
+  line-height: 1;
+  position: absolute;
+  left: 50%;
+  bottom: -0.32em;
+  transform: translateX(-12%) rotate(-4deg);
+  white-space: nowrap;
+  pointer-events: none;
+  text-shadow: 0 4px 20px rgba(246, 239, 228, 0.9);
+}
+
+.hero__sub {
+  margin-top: var(--s-5);
+  font-size: var(--fs-md);
+  color: var(--ink-muted);
+  max-width: 44ch;
+  line-height: var(--lh-body);
+}
+
+.hero__ctas {
+  margin-top: var(--s-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* Cup stage */
+.hero__stage {
   position: relative;
   width: 100%;
-  max-width: 880px;
-  margin: 0 auto;
+  max-width: 820px;
+  height: clamp(290px, 38vh, 420px);
+  margin-top: var(--s-4);
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  line-height: 0;
+  pointer-events: none;
 }
 
-.hero-cup-wrap {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 0;
-}
-
-.hero-cup-wrap.cup-left {
-  width: clamp(230px, 27vw, 340px);
+.hero__stage-shadow {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(72%, 520px);
+  height: 36px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(28, 17, 13, 0.28) 0%, rgba(28, 17, 13, 0) 75%);
+  filter: blur(8px);
   z-index: 1;
-  margin-right: clamp(-85px, -8vw, -125px);
-  margin-bottom: clamp(-18px, -2vw, -28px);
 }
 
-.hero-cup-wrap.cup-middle {
-  width: clamp(280px, 34vw, 420px);
-  z-index: 2;
-  margin-bottom: 0;
+.hero__cup {
+  position: absolute;
+  bottom: 0;
+  will-change: transform;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 20px 32px rgba(28, 17, 13, 0.22));
+  user-select: none;
 }
 
-.hero-cup-wrap.cup-right {
-  width: clamp(230px, 27vw, 340px);
-  z-index: 1;
-  margin-left: clamp(-85px, -8vw, -125px);
-  margin-bottom: clamp(-18px, -2vw, -28px);
-}
-
-.hero-cup-img {
+.hero__cup img {
   width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
-  vertical-align: bottom;
-  filter: drop-shadow(0 20px 30px rgba(42, 27, 18, 0.15));
 }
 
-@media (max-width: 600px) {
-  .hero-cups-stage {
-    max-width: 380px;
-  }
-  .hero-cup-wrap.cup-middle {
-    width: 220px;
-  }
-  .hero-cup-wrap.cup-left {
-    width: 170px;
-    margin-right: -65px;
-    margin-bottom: -15px;
-  }
-  .hero-cup-wrap.cup-right {
-    width: 170px;
-    margin-left: -65px;
-    margin-bottom: -15px;
-  }
+.hero__cup--center {
+  width: clamp(210px, 25vw, 310px);
+  z-index: 3;
+}
+
+.hero__cup--left {
+  width: clamp(155px, 18.5vw, 230px);
+  left: 50%;
+  transform: translateX(-125%) rotate(-8deg);
+  z-index: 2;
+  opacity: 0.95;
+}
+
+.hero__cup--right {
+  width: clamp(155px, 18.5vw, 230px);
+  left: 50%;
+  transform: translateX(25%) rotate(8deg);
+  z-index: 2;
+  opacity: 0.95;
 }
 
 /* ==========================================================================
@@ -506,81 +513,123 @@
   letter-spacing: 0.04em;
 }
 
-/* Ellipse Stage with Radial Spotlight */
+/* Stage where all cups live and GSAP positions them */
+.carousel__stage,
 .menu-ellipse-stage {
   position: relative;
   width: 100%;
-  height: clamp(320px, 42vh, 420px);
+  height: clamp(280px, 36vw, 390px);
+  margin-block: var(--s-2) var(--s-3);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: visible;
-  margin: 16px 0 8px;
 }
 
-/* Radial Spotlight behind active drink */
+.carousel__stage-glow,
 .menu-spotlight {
   position: absolute;
-  top: 40%;
-  left: 50%;
-  width: 440px;
-  height: 300px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(ellipse at center, #F3EADB 0%, rgba(243, 234, 219, 0) 70%);
+  width: clamp(220px, 30vw, 340px);
+  height: clamp(220px, 30vw, 340px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(239, 224, 198, 0.95) 0%, rgba(251, 246, 238, 0) 70%);
   pointer-events: none;
   z-index: 0;
-  transition: transform 120ms linear;
 }
 
-/* Single Floor Shadow under active drink */
+.carousel__stage-floor,
 .menu-floor-shadow {
   position: absolute;
-  top: calc(40% + 124px);
+  bottom: 12px;
   left: 50%;
-  width: 170px;
-  height: 14px;
-  background: radial-gradient(ellipse at center, rgba(42, 27, 18, 0.22) 0%, rgba(42, 27, 18, 0) 70%);
-  border-radius: 50%;
   transform: translateX(-50%);
-  filter: blur(7px);
-  pointer-events: none;
+  width: clamp(160px, 22vw, 240px);
+  height: 26px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(28, 17, 13, 0.26) 0%, rgba(28, 17, 13, 0) 75%);
+  filter: blur(5px);
   z-index: 1;
-  transition: transform 100ms linear;
+  pointer-events: none;
 }
 
-/* Cutout Drink Items sitting on shallow ellipse */
+.carousel__item,
 .menu-drink-item {
   position: absolute;
-  top: 40%;
   left: 50%;
-  width: clamp(160px, 20vw, 230px);
-  height: clamp(210px, 28vh, 260px);
+  top: 50%;
+  width: clamp(190px, 22vw, 270px);
+  height: clamp(240px, 28vw, 330px);
   display: flex;
   align-items: center;
   justify-content: center;
-  user-select: none;
+  will-change: transform, opacity, filter;
   cursor: pointer;
-  will-change: transform, opacity;
-  transform-origin: center bottom;
+  user-select: none;
+  filter: drop-shadow(0 18px 28px rgba(28, 17, 13, 0.2));
 }
 
+.carousel__item img,
 .menu-drink-cutout {
   max-width: 100%;
   max-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 14px 20px rgba(42, 27, 18, 0.08));
 }
 
-/* Info Row Below Drinks: Arrow | Name | Arrow */
+/* Controls + active info */
+.carousel__controls,
 .menu-card-bottom {
+  position: relative;
+  z-index: 6;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--s-4);
+  max-width: 780px;
   width: 100%;
+  margin-inline: auto;
+  padding-top: var(--s-2);
+}
+
+.carousel__meta,
+.menu-info-center {
+  text-align: center;
+  min-height: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 24px;
-  position: relative;
-  z-index: 10;
+  justify-content: center;
+  gap: var(--s-2);
+}
+
+.carousel__dot,
+.menu-card-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--line-strong, rgba(42, 27, 18, 0.25));
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+
+.carousel__dot.is-active,
+.menu-card-dot.is-active {
+  background-color: var(--accent, var(--terracotta));
+  width: 24px;
+  border-radius: 4px;
+}
+
+.carousel__dots,
+.menu-card-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--s-3);
+  grid-column: 1 / -1;
 }
 
 .menu-nav-row {
