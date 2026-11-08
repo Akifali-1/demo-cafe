@@ -15,12 +15,14 @@ export function initMenuCarousel() {
 
   const wrapper = document.getElementById("menu-carousel-wrapper");
   const stage = document.getElementById("menu-stage");
+  const ellipseStage = document.getElementById("menu-ellipse-stage");
   const container = document.getElementById("menu-items-container");
   const counterEl = document.getElementById("menu-counter");
   const prevBtn = document.getElementById("menu-prev-btn");
   const nextBtn = document.getElementById("menu-next-btn");
   const dotsContainer = document.getElementById("menu-dots");
   const floorShadow = document.getElementById("menu-floor-shadow");
+  const spotlight = document.querySelector(".menu-spotlight");
 
   const nameEl = document.getElementById("menu-active-name");
   const descEl = document.getElementById("menu-active-desc");
@@ -231,13 +233,13 @@ export function initMenuCarousel() {
       current = target;
     }
 
-    const stageWidth = stage.clientWidth;
-    const stageHeight = stage.clientHeight;
+    const stageWidth = ellipseStage ? ellipseStage.clientWidth : 960;
+    const stageHeight = ellipseStage ? ellipseStage.clientHeight : 380;
     const isMobile = window.innerWidth <= 600;
 
-    // Tune ellipse radiuses
-    const rx = isMobile ? 0.38 * stageWidth : 0.42 * stageWidth;
-    const ry = isMobile ? 0.24 * stageHeight : 0.28 * stageHeight;
+    // Tune ellipse radiuses inside the showcase card
+    const rx = isMobile ? 0.35 * stageWidth : 0.38 * stageWidth;
+    const ry = isMobile ? 0.18 * stageHeight : 0.22 * stageHeight;
     const maxOffset = isMobile ? 1.6 : 2.4;
 
     drinkElements.forEach((el, i) => {
@@ -256,7 +258,7 @@ export function initMenuCarousel() {
 
       const theta = o * THETA_STEP;
       const x = Math.sin(theta) * rx;
-      const y = (Math.cos(theta) - 1) * ry; // Recedes upward
+      const y = (Math.cos(theta) - 1) * ry; // Recedes smoothly upward
       const scale = 0.5 + 0.5 * Math.cos(theta);
       const opacity = Math.min(1, Math.max(0, 0.2 + 0.8 * Math.cos(theta)));
       const blur = (1 - Math.cos(theta)) * 6;
@@ -278,6 +280,13 @@ export function initMenuCarousel() {
       const activeO = Math.round(current) - current;
       const shadowX = Math.sin(activeO * THETA_STEP) * rx;
       floorShadow.style.transform = `translateX(calc(-50% + ${shadowX.toFixed(2)}px)) scale(${Math.max(0.7, 1 - Math.abs(activeO) * 0.3).toFixed(2)})`;
+    }
+
+    // Spotlight tracking behind active drink
+    if (spotlight) {
+      const activeO = Math.round(current) - current;
+      const spotX = Math.sin(activeO * THETA_STEP) * rx * 0.35;
+      spotlight.style.transform = `translate(calc(-50% + ${spotX.toFixed(2)}px), -50%)`;
     }
 
     // Active drink change threshold
