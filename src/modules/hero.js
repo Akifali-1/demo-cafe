@@ -18,9 +18,13 @@ export function initHero() {
   const cupRight = hero.querySelector('.hero__cup--right');
 
   // Lock explicit xPercent so GSAP keeps the trio centered with equal spacing
-  gsap.set(cupCenter, { xPercent: -50, rotate: 0, y: 0 });
-  gsap.set(cupLeft, { xPercent: -96, rotate: -6, y: 0 });
-  gsap.set(cupRight, { xPercent: 18, rotate: 6, y: 0 });
+  const isMobile = window.innerWidth <= 640;
+  const leftX = isMobile ? -88 : -90;
+  const rightX = isMobile ? 12 : 18;
+
+  gsap.set(cupCenter, { x: 0, xPercent: -50, rotate: 0, y: 0 });
+  gsap.set(cupLeft, { x: 0, xPercent: leftX, rotate: -6, y: 0 });
+  gsap.set(cupRight, { x: 0, xPercent: rightX, rotate: 6, y: 0 });
 
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
@@ -76,7 +80,7 @@ export function initHero() {
 
   gsap.to(cupLeft, {
     y: -14,
-    xPercent: -104,
+    xPercent: leftX - 6,
     rotate: -9,
     ease: 'none',
     scrollTrigger: {
@@ -89,7 +93,7 @@ export function initHero() {
 
   gsap.to(cupRight, {
     y: -14,
-    xPercent: 24,
+    xPercent: rightX + 6,
     rotate: 9,
     ease: 'none',
     scrollTrigger: {
