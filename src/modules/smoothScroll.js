@@ -58,3 +58,4 @@ export function scrollToPosition(target, duration = 0.9) {
     });
   }
 }
+

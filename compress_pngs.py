@@ -14,3 +14,4 @@ for fname in os.listdir(PUBLIC_IMAGES_DIR):
 total_bytes = sum(os.path.getsize(os.path.join(PUBLIC_IMAGES_DIR, f)) for f in os.listdir(PUBLIC_IMAGES_DIR))
 total_mb = total_bytes / (1024 * 1024)
 print(f"\nUpdated Total images directory size: {total_mb:.2f} MB (Target < 3.0 MB: {'PASS' if total_mb < 3.0 else 'FAIL'})")
+

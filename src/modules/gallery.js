@@ -99,3 +99,4 @@ export function initGallery() {
     track.scrollLeft = scrollLeft - walk;
   });
 }
+
