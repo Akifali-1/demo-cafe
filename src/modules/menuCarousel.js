@@ -1,6 +1,9 @@
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MENU_ITEMS, BRAND } from '../data/content.js';
 import { buildWhatsAppUrl } from '../utils/whatsapp.js';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function initMenuCarousel() {
   const section = document.querySelector('#menu');
@@ -20,6 +23,10 @@ export function initMenuCarousel() {
   const total = items.length;
   let activeIndex = 0;
 
+  // Clear any existing items/dots if re-initialized
+  stage.querySelectorAll('.carousel__item').forEach((n) => n.remove());
+  dotsWrap.innerHTML = '';
+
   // Build item DOM nodes
   const itemEls = items.map((item, idx) => {
     const div = document.createElement('div');
@@ -32,14 +39,14 @@ export function initMenuCarousel() {
     const img = document.createElement('img');
     img.src = item.image;
     img.alt = item.name;
-    img.loading = idx < 3 ? 'eager' : 'lazy';
+    img.loading = 'eager';
     img.decoding = 'async';
 
     div.appendChild(img);
     stage.appendChild(div);
 
     div.addEventListener('click', () => {
-      if (idx !== activeIndex) goTo(idx);
+      if (idx !== activeIndex) goTo(idx, true);
     });
 
     return div;
@@ -51,20 +58,20 @@ export function initMenuCarousel() {
     btn.type = 'button';
     btn.className = 'carousel__dot';
     btn.setAttribute('aria-label', `Go to ${item.name}`);
-    btn.addEventListener('click', () => goTo(idx));
+    btn.addEventListener('click', () => goTo(idx, true));
     dotsWrap.appendChild(btn);
     return btn;
   });
 
   function getSpread() {
     const w = window.innerWidth;
-    if (w < 520) return 120;
-    if (w < 820) return 175;
-    if (w < 1100) return 220;
-    return 255;
+    if (w < 520) return 115;
+    if (w < 820) return 165;
+    if (w < 1100) return 210;
+    return 240;
   }
 
-  // Shortest circular distance so both left and right sides always show neighbour cups
+  // Circular shortest distance so left & right sides are always balanced
   function getWrappedOffset(index, active, length) {
     let diff = index - active;
     const half = Math.floor(length / 2);
@@ -75,8 +82,7 @@ export function initMenuCarousel() {
 
   function layoutItems(animate = true) {
     const spread = getSpread();
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const dur = animate && !reduced ? 0.65 : 0;
+    const dur = animate ? 0.55 : 0;
 
     itemEls.forEach((el, i) => {
       const offset = getWrappedOffset(i, activeIndex, total);
@@ -84,8 +90,8 @@ export function initMenuCarousel() {
       const visible = abs <= 2;
 
       const x = offset * spread;
-      const y = abs === 0 ? -6 : abs === 1 ? 14 : 28;
-      const scale = abs === 0 ? 1.08 : abs === 1 ? 0.68 : 0.46;
+      const y = abs === 0 ? -8 : abs === 1 ? 8 : 20;
+      const scale = abs === 0 ? 1.05 : abs === 1 ? 0.68 : 0.45;
       const opacity = !visible ? 0 : abs === 0 ? 1 : abs === 1 ? 0.55 : 0.25;
       const blur = abs === 0 ? 0 : abs === 1 ? 2.5 : 5;
       const zIndex = 10 - abs;
@@ -94,13 +100,11 @@ export function initMenuCarousel() {
       el.style.pointerEvents = visible ? 'auto' : 'none';
 
       gsap.to(el, {
-        xPercent: -50,
-        yPercent: -50,
         x,
         y,
         scale,
         opacity,
-        filter: `blur(${blur}px) drop-shadow(0 18px 28px rgba(28, 17, 13, 0.20))`,
+        filter: blur === 0 ? 'none' : `blur(${blur}px)`,
         duration: dur,
         ease: 'power3.out',
         overwrite: 'auto',
@@ -110,7 +114,6 @@ export function initMenuCarousel() {
 
   function updateMeta(animate = true) {
     const item = items[activeIndex];
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const applyContent = () => {
       titleEl.textContent = item.name;
@@ -127,44 +130,47 @@ export function initMenuCarousel() {
       });
     };
 
-    if (!animate || reduced) {
+    if (!animate) {
       applyContent();
       return;
     }
 
+    gsap.killTweensOf([titleEl, descEl, priceEl]);
     gsap.to([titleEl, descEl, priceEl], {
       opacity: 0,
-      y: 8,
-      duration: 0.16,
+      y: 6,
+      duration: 0.12,
       ease: 'power2.in',
       onComplete: () => {
         applyContent();
         gsap.fromTo(
           [titleEl, descEl, priceEl],
-          { opacity: 0, y: -8 },
-          { opacity: 1, y: 0, duration: 0.32, stagger: 0.04, ease: 'power2.out' }
+          { opacity: 0, y: -6 },
+          { opacity: 1, y: 0, duration: 0.26, stagger: 0.03, ease: 'power2.out' }
         );
       },
     });
   }
 
   function goTo(index, animate = true) {
-    activeIndex = (index + total) % total;
+    const nextIdx = ((index % total) + total) % total;
+    if (nextIdx === activeIndex && animate) return;
+    activeIndex = nextIdx;
     layoutItems(animate);
     updateMeta(animate);
   }
 
-  prevBtn?.addEventListener('click', () => goTo(activeIndex - 1));
-  nextBtn?.addEventListener('click', () => goTo(activeIndex + 1));
+  prevBtn?.addEventListener('click', () => goTo(activeIndex - 1, true));
+  nextBtn?.addEventListener('click', () => goTo(activeIndex + 1, true));
 
   // Keyboard navigation
   section.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
       e.preventDefault();
-      goTo(activeIndex - 1);
+      goTo(activeIndex - 1, true);
     } else if (e.key === 'ArrowRight') {
       e.preventDefault();
-      goTo(activeIndex + 1);
+      goTo(activeIndex + 1, true);
     }
   });
 
@@ -193,12 +199,29 @@ export function initMenuCarousel() {
       const dx = t.clientX - startX;
       const dy = t.clientY - startY;
       if (Math.abs(dx) > 36 && Math.abs(dx) > Math.abs(dy)) {
-        if (dx < 0) goTo(activeIndex + 1);
-        else goTo(activeIndex - 1);
+        if (dx < 0) goTo(activeIndex + 1, true);
+        else goTo(activeIndex - 1, true);
       }
     },
     { passive: true }
   );
+
+  // Scroll-driven carousel progression:
+  // Starts only when the entire menu section is fully visible and centered on screen (like reference)
+  ScrollTrigger.create({
+    trigger: section,
+    start: 'center center',
+    end: '+=200%',
+    pin: true,
+    pinSpacing: true,
+    scrub: 0.5,
+    onUpdate: (self) => {
+      const targetIndex = Math.min(total - 1, Math.floor(self.progress * total));
+      if (targetIndex !== activeIndex) {
+        goTo(targetIndex, true);
+      }
+    },
+  });
 
   // Relayout on resize
   let resizeTimer;
@@ -208,6 +231,7 @@ export function initMenuCarousel() {
   });
 
   // Initial render
-  gsap.set(itemEls, { xPercent: -50, yPercent: -50 });
-  goTo(0, false);
+  activeIndex = 0;
+  layoutItems(false);
+  updateMeta(false);
 }

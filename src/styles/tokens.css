@@ -44,12 +44,22 @@
   --ease-carousel: cubic-bezier(0.65, 0, 0.35, 1);
   /* Design Tokens Aliases */
   --nav-h: 80px;
+  --bg: var(--cream);
+  --bg-card: var(--paper);
+  --bg-elev: var(--sand);
   --ink: var(--espresso);
   --ink-muted: var(--mocha);
   --accent: var(--terracotta);
+  --accent-hover: #A24823;
   --border: var(--line);
+  --border-strong: var(--line-strong);
   --container-pad: var(--container-px);
   --fs-md: 18px;
+  --dur-fast: 220ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --r-pill: var(--radius-pill);
+  --r-xl: var(--radius);
+  --shadow-card: var(--shadow);
   --s-1: 8px;
   --s-2: 12px;
   --s-3: 16px;

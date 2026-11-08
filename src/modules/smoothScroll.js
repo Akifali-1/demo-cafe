@@ -5,9 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export function initSmoothScroll() {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return null;
-
   try {
     const lenis = new Lenis({
       duration: 1.15,
@@ -17,7 +14,6 @@ export function initSmoothScroll() {
       touchMultiplier: 1.5,
     });
 
-    // Keep ScrollTrigger perfectly synced with Lenis scroll position
     lenis.on('scroll', ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
@@ -25,13 +21,12 @@ export function initSmoothScroll() {
     });
     gsap.ticker.lagSmoothing(0);
 
-    // Smooth scroll for all internal anchor links (#menu, #visit, etc.)
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', (e) => {
         const targetId = anchor.getAttribute('href');
         if (!targetId || targetId === '#') {
           e.preventDefault();
-          lenis.scrollTo(0, { duration: 1.2 });
+          lenis.scrollTo(0, { duration: 1.1 });
           return;
         }
         const targetEl = document.querySelector(targetId);
@@ -39,7 +34,7 @@ export function initSmoothScroll() {
           e.preventDefault();
           lenis.scrollTo(targetEl, {
             offset: -72,
-            duration: 1.25,
+            duration: 1.2,
           });
         }
       });

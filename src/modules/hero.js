@@ -1,20 +1,9 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { BRAND } from '../data/content.js';
-import { buildWhatsAppUrl } from '../utils/whatsapp.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function initHero() {
-  const orderBtns = document.querySelectorAll('[data-wa-order]');
-  orderBtns.forEach((btn) => {
-    const customMsg = btn.getAttribute('data-wa-message');
-    btn.setAttribute('href', buildWhatsAppUrl(customMsg || BRAND.whatsappDefaultMessage));
-  });
-
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
-
   const hero = document.querySelector('.hero');
   if (!hero) return;
 
@@ -23,75 +12,91 @@ export function initHero() {
   const script = hero.querySelector('.hero__script');
   const sub = hero.querySelector('.hero__sub');
   const ctas = hero.querySelector('.hero__ctas');
+
   const cupCenter = hero.querySelector('.hero__cup--center');
   const cupLeft = hero.querySelector('.hero__cup--left');
   const cupRight = hero.querySelector('.hero__cup--right');
 
-  // Lock initial X transforms so GSAP doesn't overwrite CSS positioning
-  gsap.set(cupCenter, { xPercent: 0, rotate: 0 });
-  gsap.set(cupLeft, { xPercent: -125, rotate: -8 });
-  gsap.set(cupRight, { xPercent: 25, rotate: 8 });
+  // Lock explicit xPercent so GSAP keeps the trio centered with equal spacing
+  gsap.set(cupCenter, { xPercent: -50, rotate: 0, y: 0 });
+  gsap.set(cupLeft, { xPercent: -96, rotate: -6, y: 0 });
+  gsap.set(cupRight, { xPercent: 18, rotate: 6, y: 0 });
 
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
   tl.from([eyebrow, headline, script], {
     opacity: 0,
-    y: 28,
-    duration: 0.85,
+    y: 24,
+    duration: 0.8,
     stagger: 0.1,
   })
     .from(
       [sub, ctas],
       {
         opacity: 0,
-        y: 20,
-        duration: 0.7,
-        stagger: 0.1,
+        y: 18,
+        duration: 0.65,
+        stagger: 0.08,
       },
-      '-=0.45'
+      '-=0.4'
     )
     .from(
       cupCenter,
       {
         opacity: 0,
-        y: 60,
+        y: 50,
         scale: 0.92,
-        duration: 0.9,
+        duration: 0.85,
       },
-      '-=0.5'
+      '-=0.45'
     )
     .from(
       [cupLeft, cupRight],
       {
         opacity: 0,
-        y: 50,
-        scale: 0.88,
-        duration: 0.85,
-        stagger: 0.1,
+        y: 40,
+        scale: 0.9,
+        duration: 0.8,
+        stagger: 0.08,
       },
-      '-=0.65'
+      '-=0.6'
     );
 
-  // Subtle scroll parallax on cups
+  // Scroll parallax on the 3 hero cups
   gsap.to(cupCenter, {
-    y: -32,
+    y: -28,
     ease: 'none',
     scrollTrigger: {
       trigger: hero,
       start: 'top top',
       end: 'bottom top',
-      scrub: 0.6,
+      scrub: 0.5,
     },
   });
 
-  gsap.to([cupLeft, cupRight], {
-    y: -16,
+  gsap.to(cupLeft, {
+    y: -14,
+    xPercent: -104,
+    rotate: -9,
     ease: 'none',
     scrollTrigger: {
       trigger: hero,
       start: 'top top',
       end: 'bottom top',
-      scrub: 0.6,
+      scrub: 0.5,
+    },
+  });
+
+  gsap.to(cupRight, {
+    y: -14,
+    xPercent: 24,
+    rotate: 9,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: hero,
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 0.5,
     },
   });
 }

@@ -5,3 +5,4 @@ export function buildWhatsAppUrl(message = '') {
   const text = encodeURIComponent(message || BRAND?.whatsappDefaultMessage || 'Hi Demo Cafe!');
   return `https://wa.me/${phone}?text=${text}`;
 }
+
