@@ -48,25 +48,11 @@ export const content = {
     },
     cups: [
       {
-        id: "hero-left",
-        src: "/images/hero-cup-left.png",
-        alt: "Iced chocolate mocha frappe with ice cubes in clear takeaway cup",
-        name: "Iced Chocolate Mocha",
-        speed: 0.08
-      },
-      {
-        id: "hero-middle",
-        src: "/images/hero-cup-center.png",
-        alt: "Iced caramel latte with crystal ice cubes and condensation droplets",
-        name: "Iced Caramel Latte",
+        id: "hero-latte",
+        src: "/images/hero-latte-saucer.png",
+        alt: "Latte with latte art on a saucer, served with a pastry and cinnamon sticks",
+        name: "Latte with Pastry",
         speed: 0.16
-      },
-      {
-        id: "hero-right",
-        src: "/images/hero-cup-right.png",
-        alt: "Layered ceremonial iced matcha latte with ice cubes in clear takeaway cup",
-        name: "Iced Matcha Latte",
-        speed: 0.05
       }
     ]
   },
