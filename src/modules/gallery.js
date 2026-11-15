@@ -53,10 +53,9 @@ export function initGallery() {
 
   // 3. Arrow buttons (scrollBy tile width + gap)
   function getScrollStep() {
-    const isMobile = window.innerWidth <= 600;
-    const tileWidth = isMobile ? 260 : 360;
-    const gap = 20;
-    return tileWidth + gap;
+    const first = track.querySelector(".gallery-tile");
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 20;
+    return (first ? first.getBoundingClientRect().width : 300) + gap;
   }
 
   prevBtn?.addEventListener("click", () => {

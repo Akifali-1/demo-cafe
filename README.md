@@ -8,7 +8,7 @@ Designed with an asymmetric, warm editorial layout inspired by summer mornings, 
 
 ## 🛠 Tech Stack
 
-- **Vite 6** (Vanilla JavaScript template — zero React/framework overhead, static production build)
+- **Vite** (Vanilla JavaScript template — zero React/framework overhead, static production build)
 - **Plain CSS3** with design tokens (`tokens.css`, `base.css`, `layout.css`, `sections.css`, `animations.css`)
 - **GSAP 3** (`ScrollTrigger`, `ScrollToPlugin`) for physics-based scroll-linked animations and reveals
 - **Lenis** for smooth wheel and momentum scrolling connected to GSAP's RAF ticker

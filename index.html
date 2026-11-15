@@ -8,11 +8,9 @@
       name="description"
       content="Independent specialty cafe serving freshly brewed iced coffee, ceremonial matcha, and fruit coolers in Hyderabad. Made to order with filtered water ice."
     />
-
-    <!-- Favicon -->
+    <meta name="theme-color" content="#F6F0E7" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Open Graph & Social -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Demo Cafe | Iced coffee and cold drinks" />
     <meta
@@ -22,23 +20,8 @@
     <meta property="og:image" content="/images/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Preconnect & Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Pinyon+Script&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Pinyon+Script&display=swap"
-    />
+    <link rel="preload" as="image" href="/images/drink-iced-latte.webp" type="image/webp" fetchpriority="high" />
 
-    <!-- Preload Hero Cutout Assets with High Priority -->
-    <link rel="preload" as="image" href="/images/hero-latte-saucer.png" type="image/png" fetchpriority="high" />
-
-    <!-- Core Styles -->
     <link rel="stylesheet" href="/src/styles/tokens.css" />
     <link rel="stylesheet" href="/src/styles/base.css" />
     <link rel="stylesheet" href="/src/styles/layout.css" />
@@ -46,10 +29,8 @@
     <link rel="stylesheet" href="/src/styles/animations.css" />
   </head>
   <body>
-    <!-- Top Scroll Progress Indicator -->
     <div id="scroll-progress" aria-hidden="true"></div>
 
-    <!-- Header / Sticky Navigation -->
     <header class="site-header" id="header" role="banner">
       <div class="container header-inner">
         <a href="#hero" class="brand-wordmark" aria-label="Demo Cafe Home">
@@ -57,7 +38,6 @@
           <span class="brand-dot" aria-hidden="true"></span>
         </a>
 
-        <!-- Desktop Navigation -->
         <nav class="nav-desktop" aria-label="Main Navigation">
           <ul class="nav-links">
             <li><a href="#menu" class="nav-link">Menu</a></li>
@@ -77,36 +57,19 @@
           </a>
         </nav>
 
-        <!-- Mobile Hamburger Toggle -->
-        <button
-          class="nav-toggle"
-          id="nav-toggle"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-        >
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
           <span class="nav-toggle-bar"></span>
           <span class="nav-toggle-bar"></span>
         </button>
       </div>
 
-      <!-- Full-screen Mobile Overlay -->
       <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
         <ul class="mobile-nav-links">
-          <li class="mobile-nav-item">
-            <a href="#menu" class="mobile-nav-link">Menu</a>
-          </li>
-          <li class="mobile-nav-item">
-            <a href="#visit" class="mobile-nav-link">Why Visit</a>
-          </li>
-          <li class="mobile-nav-item">
-            <a href="#gallery" class="mobile-nav-link">Gallery</a>
-          </li>
-          <li class="mobile-nav-item">
-            <a href="#find-us" class="mobile-nav-link">Find us</a>
-          </li>
-          <li class="mobile-nav-item">
-            <a href="#offer" class="mobile-nav-link">Offers</a>
-          </li>
+          <li class="mobile-nav-item"><a href="#menu" class="mobile-nav-link">Menu</a></li>
+          <li class="mobile-nav-item"><a href="#visit" class="mobile-nav-link">Why Visit</a></li>
+          <li class="mobile-nav-item"><a href="#gallery" class="mobile-nav-link">Gallery</a></li>
+          <li class="mobile-nav-item"><a href="#find-us" class="mobile-nav-link">Find us</a></li>
+          <li class="mobile-nav-item"><a href="#offer" class="mobile-nav-link">Offers</a></li>
         </ul>
         <div class="mobile-menu-footer">
           <a
@@ -123,128 +86,115 @@
       </div>
     </header>
 
-    <!-- Main Content -->
     <main id="main-content">
-      <!-- 1. Hero Section -->
-      <section class="hero hero-section" id="hero" aria-labelledby="hero-title">
-        <div class="hero__bg-glow" aria-hidden="true"></div>
+      <!-- 1. Hero -->
+      <section class="hero" id="hero" aria-labelledby="hero-title">
         <div class="container hero__inner">
-          <div class="hero__eyebrow section-label">00 / Summer Edition</div>
-          <div class="hero__headline-wrap hero-heading-wrap">
-            <h1 class="hero__headline hero-heading" id="hero-title">
-              <span class="hero-heading-line">
-                <span class="hero-heading-line-inner">ICED COFFEE</span>
-              </span>
-              <span class="hero__script script-accent hero-script-accent">summer edition</span>
+          <div class="hero__copy">
+            <div class="hero__eyebrow section-label">Summer edition</div>
+            <h1 class="hero__headline" id="hero-title">
+              <span class="hero__line">Iced</span>
+              <span class="hero__line">Coffee</span>
             </h1>
-          </div>
-          <p class="hero__sub hero-subline">
-            Cold drinks brewed fresh to order, in the middle of the city.
-          </p>
+            <span class="hero__script script-accent" aria-hidden="true">served cold, made fresh</span>
+            <p class="hero__sub">Cold drinks brewed fresh to order, in the middle of the city.</p>
 
-          <div class="hero__ctas hero-actions">
-            <a href="#menu" class="btn btn-primary hero-btn-magnetic" data-wa-order data-wa-message="Hi Demo Cafe! I would like to order fresh iced coffee.">
-              <span class="btn-content">
-                View the menu
-                <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 8h10M9 4l4 4-4 4" />
-                </svg>
-              </span>
-            </a>
-            <a href="#offer" class="btn btn-secondary">
-              <span class="btn-content">Get 15% off</span>
-            </a>
-          </div>
-
-          <!-- Hero Cutouts Composition -->
-          <div class="hero__stage hero-cups-stage" id="hero-cups-stage">
-            <div class="hero__stage-shadow" aria-hidden="true"></div>
-            <div class="hero__cup hero__cup--center hero-cup-wrap" id="hero-cup">
-              <img
-                src="/images/hero-latte-saucer.png"
-                alt="Latte with latte art on a saucer, served with a pastry and cinnamon sticks"
-                class="hero-cup-img"
-                width="549"
-                height="309"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-              />
+            <div class="hero__ctas">
+              <a href="#menu" class="btn btn-primary">
+                <span class="btn-content">
+                  View the menu
+                  <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+                </span>
+              </a>
+              <a href="#offer" class="btn btn-secondary"><span class="btn-content">Get 15% off</span></a>
             </div>
+
+            <dl class="hero__stats">
+              <div><dt>Signature drinks</dt><dd>8</dd></div>
+              <div><dt>Hyderabad cafes</dt><dd>3</dd></div>
+              <div><dt>Open daily</dt><dd>8 to 11</dd></div>
+            </dl>
+          </div>
+
+          <div class="hero__stage" id="hero-cups-stage">
+            <div class="hero__disc" aria-hidden="true"></div>
+            <div class="hero__cup hero__cup--left">
+              <img src="/images/drink-matcha.webp" alt="Iced matcha latte with ice cubes" width="722" height="1100" decoding="async" />
+            </div>
+            <div class="hero__cup hero__cup--center">
+              <img src="/images/drink-iced-latte.webp" alt="Iced latte with swirling milk over ice" width="474" height="1100" loading="eager" fetchpriority="high" decoding="async" />
+            </div>
+            <div class="hero__cup hero__cup--right">
+              <img src="/images/drink-cold-chocolate.webp" alt="Cold chocolate topped with cream and a cookie" width="348" height="637" decoding="async" />
+            </div>
+            <div class="hero__floor" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee__track">
+            <span>Iced Caramel Latte</span><i></i><span>Cold Brew</span><i></i><span>Iced Matcha</span><i></i><span>Mango Cooler</span><i></i><span>Vanilla Iced Coffee</span><i></i><span>Iced Latte</span><i></i><span>Cold Chocolate</span><i></i><span>Lemon Iced Tea</span><i></i>
+            <span>Iced Caramel Latte</span><i></i><span>Cold Brew</span><i></i><span>Iced Matcha</span><i></i><span>Mango Cooler</span><i></i><span>Vanilla Iced Coffee</span><i></i><span>Iced Latte</span><i></i><span>Cold Chocolate</span><i></i><span>Lemon Iced Tea</span><i></i>
           </div>
         </div>
       </section>
 
-      <!-- 2. Feature Section: "When you crave something cold" -->
+      <!-- 2. Feature -->
       <section class="section feature-section" id="feature" aria-labelledby="feature-title">
         <div class="container">
-          <div class="grid-12 align-center">
-            <!-- Left Text Block -->
-            <div class="col-7 col-lg-12">
+          <div class="feature-grid">
+            <div class="feature-copy">
               <span class="section-label">01 / Crave</span>
-              <div class="feature-header-wrap">
-                <h2 class="feature-heading" id="feature-title">
-                  <span class="line-mask"><span class="line-mask-inner">WHEN YOU CRAVE</span></span>
-                  <span class="line-mask"><span class="line-mask-inner">SOMETHING COLD</span></span>
-                  <span class="script-accent feature-script-accent">anytime</span>
-                </h2>
-              </div>
+              <h2 class="feature-heading" id="feature-title">
+                <span class="line-mask"><span class="line-mask-inner">WHEN YOU CRAVE</span></span>
+                <span class="line-mask"><span class="line-mask-inner">SOMETHING COLD</span></span>
+                <span class="script-accent feature-script-accent">anytime</span>
+              </h2>
               <p class="feature-lead">
                 Long day, hot streets, a meeting that ran over? Our iced drinks are made to order with
                 freshly pulled espresso, real fruit, and ice made from filtered water. The last sip
                 should taste like the first.
               </p>
-
-              <div class="feature-facts-list">
-                <div class="feature-fact-item">
-                  <h3 class="feature-fact-title">Made to order</h3>
-                  <p class="feature-fact-desc">
-                    Never pre-poured or held in morning pitchers. Pulled fresh as soon as you order.
-                  </p>
-                </div>
-                <div class="feature-fact-item">
-                  <h3 class="feature-fact-title">Filtered water ice</h3>
-                  <p class="feature-fact-desc">
-                    Dense, crystal-clear ice blocks that chill evenly without rapid watery dilution.
-                  </p>
-                </div>
-                <div class="feature-fact-item">
-                  <h3 class="feature-fact-title">Oat and dairy milk</h3>
-                  <p class="feature-fact-desc">
-                    Silky whole dairy from regional farms or rich barista-grade oat milk alternatives.
-                  </p>
-                </div>
-              </div>
+              <a href="#menu" class="text-link">See what is on the menu
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+              </a>
             </div>
 
-            <!-- Right Photo with Mask Reveal -->
-            <div class="col-5 col-lg-12">
+            <div class="feature-media">
               <div class="feature-image-frame">
                 <div class="feature-image-reveal clip-reveal-frame">
-                  <img
-                    src="/images/feature-pour.webp"
-                    alt="Barista holding a cold iced coffee cup with filtered ice cubes"
-                    class="clip-reveal-img"
-                    width="1200"
-                    height="1500"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <img src="/images/feature-iced-coffee.webp" alt="Tall glass of iced coffee with swirling milk, next to a glass coffee carafe on a marble counter" class="clip-reveal-img" width="1100" height="1375" loading="lazy" decoding="async" />
                 </div>
+                <div class="feature-chip" aria-hidden="true"><strong>0%</strong><span>pre-poured, ever</span></div>
               </div>
+            </div>
+          </div>
+
+          <div class="feature-facts-list" data-reveal-group>
+            <div class="feature-fact-item" data-reveal>
+              <span class="fact-num">01</span>
+              <h3 class="feature-fact-title">Made to order</h3>
+              <p class="feature-fact-desc">Never pre-poured or held in morning pitchers. Pulled fresh as soon as you order.</p>
+            </div>
+            <div class="feature-fact-item" data-reveal>
+              <span class="fact-num">02</span>
+              <h3 class="feature-fact-title">Filtered water ice</h3>
+              <p class="feature-fact-desc">Dense, crystal-clear ice that chills evenly without rapid watery dilution.</p>
+            </div>
+            <div class="feature-fact-item" data-reveal>
+              <span class="fact-num">03</span>
+              <h3 class="feature-fact-title">Oat and dairy milk</h3>
+              <p class="feature-fact-desc">Silky whole dairy from regional farms or barista-grade oat milk alternatives.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 3. Menu Carousel Section: "Choose your flavour" -->
+      <!-- 3. Menu carousel -->
       <section class="menu-section" id="menu" aria-labelledby="menu-title">
-        <div class="menu-carousel-wrapper" id="menu-carousel-wrapper">
+        <div class="menu-carousel-wrapper container" id="menu-carousel-wrapper">
           <div class="menu-stage" id="menu-stage" tabindex="0" aria-label="Drinks menu showcase carousel. Use Left and Right arrow keys to navigate.">
-            
-            <!-- Rounded Paper Card -->
             <div class="menu-showcase-card">
-              <!-- Card Header -->
               <div class="menu-card-header">
                 <div class="menu-title-group">
                   <span class="section-label">02 / Menu</span>
@@ -256,163 +206,96 @@
                 <div class="menu-counter" id="menu-counter" data-carousel-counter aria-hidden="true">01 / 08</div>
               </div>
 
-              <!-- Shallow Ellipse Stage where all cups live and GSAP positions them -->
               <div class="carousel__stage menu-ellipse-stage" id="menu-ellipse-stage" data-carousel-stage>
-                <!-- Radial Spotlight / Stage Glow behind active drink -->
                 <div class="carousel__stage-glow menu-spotlight" aria-hidden="true"></div>
-
-                <!-- Stage Floor Shadow under active drink -->
                 <div class="carousel__stage-floor menu-floor-shadow" id="menu-floor-shadow" aria-hidden="true"></div>
               </div>
 
-              <!-- Card Bottom Controls: Left Arrow | Info Panel | Right Arrow -->
               <div class="carousel__controls menu-card-bottom">
-                <div class="menu-nav-row" style="width: 100%; display: flex; align-items: center; justify-content: space-between;">
+                <div class="menu-nav-row">
                   <button class="carousel-btn" id="menu-prev-btn" data-carousel-prev aria-label="Previous drink">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M15 18l-6-6 6-6" />
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
                   </button>
 
-                  <!-- Active Drink Info Center (Live Region) -->
                   <div class="carousel__meta menu-info-center" id="menu-info-center" aria-live="polite">
-                    <div class="menu-active-name-wrap">
-                      <span class="menu-active-name" id="menu-active-name" data-carousel-title>Iced Caramel Latte</span>
-                    </div>
-                    <div class="menu-active-desc-wrap">
-                      <span class="menu-active-desc" id="menu-active-desc" data-carousel-desc>
-                        Double espresso, cold milk, house caramel, poured over ice.
-                      </span>
-                    </div>
+                    <span class="menu-active-name" id="menu-active-name" data-carousel-title>Iced Caramel Latte</span>
+                    <span class="menu-active-desc" id="menu-active-desc" data-carousel-desc>Double espresso, cold milk, house caramel, poured over ice.</span>
                     <div class="menu-sub-actions">
                       <span class="menu-price-pill" id="menu-active-price" data-carousel-price>₹220</span>
-                      <a
-                        href="https://wa.me/919876543210?text=Hi%2C%20I%20would%20like%20a%20Iced%20Caramel%20Latte"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="menu-order-link"
-                        id="menu-active-order"
-                        data-carousel-order
-                      >
+                      <a href="https://wa.me/919876543210?text=Hi%2C%20I%20would%20like%20a%20Iced%20Caramel%20Latte" target="_blank" rel="noopener noreferrer" class="menu-order-link" id="menu-active-order" data-carousel-order>
                         Order this
-                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                          <path d="M5 11l6-6m0 0H6m5 0v5" />
-                        </svg>
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11l6-6m0 0H6m5 0v5" /></svg>
                       </a>
                     </div>
                   </div>
 
                   <button class="carousel-btn" id="menu-next-btn" data-carousel-next aria-label="Next drink">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M9 18l6-6-6-6" />
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
                   </button>
                 </div>
-
-                <!-- Clickable Indicator Dots -->
                 <div class="carousel__dots menu-card-dots" id="menu-dots" data-carousel-dots role="tablist" aria-label="Select drink"></div>
               </div>
             </div>
-
-          </div>
-        </div>
-      </section>
-            </div>
-
           </div>
         </div>
       </section>
 
-      <!-- 4. Visit Section: "Why you should stop by" -->
+      <!-- 4. Visit -->
       <section class="section visit-section" id="visit" aria-labelledby="visit-title">
         <div class="container">
-          <div class="grid-12 align-center">
-            <!-- Left Features List with Inline SVG Icons -->
-            <div class="col-6 col-lg-12">
+          <div class="visit-grid">
+            <div class="visit-copy">
               <span class="section-label">03 / Visit</span>
-              <div class="visit-header-wrap">
-                <h2 class="visit-heading" id="visit-title">
-                  <span class="line-mask"><span class="line-mask-inner">WHY YOU SHOULD</span></span>
-                  <span class="line-mask"><span class="line-mask-inner">STOP BY</span></span>
-                  <span class="script-accent visit-script-accent">stop by</span>
-                </h2>
-              </div>
+              <h2 class="visit-heading" id="visit-title">
+                <span class="line-mask"><span class="line-mask-inner">WHY YOU SHOULD</span></span>
+                <span class="line-mask"><span class="line-mask-inner">STOP BY</span></span>
+                <span class="script-accent visit-script-accent">stay a while</span>
+              </h2>
 
               <div class="visit-features-list" id="visit-features-list">
-                <!-- Feature 1: Brewed to order -->
                 <div class="visit-feature-card">
                   <div class="visit-icon-box" aria-hidden="true">
-                    <svg class="draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                      <line x1="6" y1="1" x2="6" y2="4"></line>
-                      <line x1="10" y1="1" x2="10" y2="4"></line>
-                      <line x1="14" y1="1" x2="14" y2="4"></line>
-                    </svg>
+                    <svg class="draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
                   </div>
                   <div>
                     <h3 class="visit-feature-title">Brewed to order</h3>
-                    <p class="visit-feature-desc">
-                      Every drink is made when you order it, not batched in the morning.
-                    </p>
+                    <p class="visit-feature-desc">Every drink is made when you order it, not batched in the morning.</p>
                   </div>
                 </div>
-
-                <!-- Feature 2: Easy to reach -->
                 <div class="visit-feature-card">
                   <div class="visit-icon-box" aria-hidden="true">
-                    <svg class="draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
+                    <svg class="draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                   </div>
                   <div>
                     <h3 class="visit-feature-title">Easy to reach</h3>
-                    <p class="visit-feature-desc">
-                      On the main road, with parking nearby and a short walk from the bus stop.
-                    </p>
+                    <p class="visit-feature-desc">On the main road, with parking nearby and a short walk from the bus stop.</p>
                   </div>
                 </div>
-
-                <!-- Feature 3: Room to work -->
                 <div class="visit-feature-card">
                   <div class="visit-icon-box" aria-hidden="true">
-                    <svg class="draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                      <line x1="8" y1="21" x2="16" y2="21"></line>
-                      <line x1="12" y1="17" x2="12" y2="21"></line>
-                    </svg>
+                    <svg class="draw-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                   </div>
                   <div>
                     <h3 class="visit-feature-title">Room to work</h3>
-                    <p class="visit-feature-desc">
-                      Quiet corners, fast Wi-Fi, and a plug point at every table.
-                    </p>
+                    <p class="visit-feature-desc">Quiet corners, fast Wi-Fi, and a plug point at every table.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Right Photo with Slow Parallax -->
-            <div class="col-6 col-lg-12">
+            <div class="visit-media">
               <div class="visit-image-wrapper clip-reveal-frame" id="visit-image-frame">
-                <img
-                  src="/images/visit-cafe-interior.webp"
-                  alt="Bright cafe interior with large windows, natural sunlight and plants"
-                  class="clip-reveal-img"
-                  id="visit-parallax-img"
-                  width="1200"
-                  height="1500"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src="/images/visit-cafe-interior.webp" alt="Bright cafe interior with large windows, sunlight and green plants" class="clip-reveal-img" id="visit-parallax-img" width="1200" height="900" loading="lazy" decoding="async" />
+              </div>
+              <div class="visit-inset">
+                <img src="/images/gallery-terrace.webp" alt="Cobblestone cafe terrace with a chalkboard menu" width="900" height="1200" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 5. Gallery Section: "A cool corner for your day" -->
+      <!-- 5. Gallery -->
       <section class="section gallery-section" id="gallery" aria-labelledby="gallery-title">
         <div class="container">
           <span class="section-label">04 / Gallery</span>
@@ -422,135 +305,39 @@
               <span class="line-mask"><span class="line-mask-inner">FOR YOUR DAY</span></span>
               <span class="script-accent gallery-script-accent">come in</span>
             </h2>
-
             <div class="gallery-arrows">
               <button class="carousel-btn" id="gallery-prev-btn" aria-label="Scroll gallery left">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M15 18l-6-6 6-6" />
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
               </button>
               <button class="carousel-btn" id="gallery-next-btn" aria-label="Scroll gallery right">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
               </button>
             </div>
           </div>
+        </div>
 
-          <!-- Horizontal Strip of Photo Tiles -->
-          <div class="gallery-track-outer">
-            <div class="gallery-track" id="gallery-track">
-              <!-- Tile 1 -->
-              <div class="gallery-tile" tabindex="0">
-                <img
-                  src="/images/gallery-1.webp"
-                  alt="Cozy sunlit cafe table by the window"
-                  class="gallery-tile-img"
-                  width="900"
-                  height="1200"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="gallery-tile-overlay">
-                  <span class="gallery-tile-caption">Window seats</span>
-                </div>
-              </div>
-
-              <!-- Tile 2 -->
-              <div class="gallery-tile" tabindex="0">
-                <img
-                  src="/images/gallery-2.webp"
-                  alt="Barista pouring brewed coffee into cup with glass pot"
-                  class="gallery-tile-img"
-                  width="900"
-                  height="1200"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="gallery-tile-overlay">
-                  <span class="gallery-tile-caption">Morning brew</span>
-                </div>
-              </div>
-
-              <!-- Tile 3 -->
-              <div class="gallery-tile" tabindex="0">
-                <img
-                  src="/images/gallery-3.webp"
-                  alt="Refreshing iced matcha latte on outdoor table"
-                  class="gallery-tile-img"
-                  width="900"
-                  height="1200"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="gallery-tile-overlay">
-                  <span class="gallery-tile-caption">Iced matcha</span>
-                </div>
-              </div>
-
-              <!-- Tile 4 -->
-              <div class="gallery-tile" tabindex="0">
-                <img
-                  src="/images/gallery-4.webp"
-                  alt="Interior of stylish cafe with wooden counter and stools placed near window"
-                  class="gallery-tile-img"
-                  width="900"
-                  height="1200"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="gallery-tile-overlay">
-                  <span class="gallery-tile-caption">The bar</span>
-                </div>
-              </div>
-
-              <!-- Tile 5 -->
-              <div class="gallery-tile" tabindex="0">
-                <img
-                  src="/images/gallery-5.webp"
-                  alt="Cheerful diverse friends talking at table with coffee in cafe"
-                  class="gallery-tile-img"
-                  width="900"
-                  height="1200"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="gallery-tile-overlay">
-                  <span class="gallery-tile-caption">Late afternoons</span>
-                </div>
-              </div>
-
-              <!-- Tile 6 -->
-              <div class="gallery-tile" tabindex="0">
-                <img
-                  src="/images/gallery-6.webp"
-                  alt="Sunny outdoor dining area with wooden furniture"
-                  class="gallery-tile-img"
-                  width="900"
-                  height="1200"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div class="gallery-tile-overlay">
-                  <span class="gallery-tile-caption">Patio</span>
-                </div>
-              </div>
-            </div>
+        <div class="gallery-track-outer">
+          <div class="gallery-track" id="gallery-track">
+            <figure class="gallery-tile" tabindex="0"><img src="/images/gallery-1.webp" alt="Cozy sunlit cafe table by the window with plants" class="gallery-tile-img" width="900" height="1599" loading="lazy" decoding="async" /><figcaption class="gallery-tile-overlay"><span class="gallery-tile-caption">Window seats</span></figcaption></figure>
+            <figure class="gallery-tile" tabindex="0"><img src="/images/gallery-2.webp" alt="Barista pouring siphon-brewed coffee into a cup" class="gallery-tile-img" width="900" height="1350" loading="lazy" decoding="async" /><figcaption class="gallery-tile-overlay"><span class="gallery-tile-caption">Siphon brew</span></figcaption></figure>
+            <figure class="gallery-tile" tabindex="0"><img src="/images/gallery-latte-art.webp" alt="Latte art in a teal cup seen from above" class="gallery-tile-img" width="900" height="1200" loading="lazy" decoding="async" /><figcaption class="gallery-tile-overlay"><span class="gallery-tile-caption">Latte art</span></figcaption></figure>
+            <figure class="gallery-tile" tabindex="0"><img src="/images/gallery-4.webp" alt="Stylish cafe interior with a wooden counter and stools by the window" class="gallery-tile-img" width="900" height="1350" loading="lazy" decoding="async" /><figcaption class="gallery-tile-overlay"><span class="gallery-tile-caption">The bar</span></figcaption></figure>
+            <figure class="gallery-tile" tabindex="0"><img src="/images/gallery-barista.webp" alt="Smiling barista in an apron behind the espresso bar" class="gallery-tile-img" width="900" height="1200" loading="lazy" decoding="async" /><figcaption class="gallery-tile-overlay"><span class="gallery-tile-caption">Our baristas</span></figcaption></figure>
+            <figure class="gallery-tile" tabindex="0"><img src="/images/gallery-terrace.webp" alt="Cobblestone cafe terrace with a chalkboard menu" class="gallery-tile-img" width="900" height="1200" loading="lazy" decoding="async" /><figcaption class="gallery-tile-overlay"><span class="gallery-tile-caption">Terrace</span></figcaption></figure>
+            <figure class="gallery-tile" tabindex="0"><img src="/images/gallery-5.webp" alt="Two friends talking over coffee at a wooden table" class="gallery-tile-img" width="900" height="600" loading="lazy" decoding="async" /><figcaption class="gallery-tile-overlay"><span class="gallery-tile-caption">Late afternoons</span></figcaption></figure>
           </div>
+        </div>
 
-          <!-- Thin Progress Bar -->
-          <div class="gallery-progress-wrap" aria-hidden="true">
-            <div class="gallery-progress-fill" id="gallery-progress-fill"></div>
-          </div>
+        <div class="container">
+          <div class="gallery-progress-wrap" aria-hidden="true"><div class="gallery-progress-fill" id="gallery-progress-fill"></div></div>
         </div>
       </section>
 
-      <!-- 6. Find Us Section: Leaflet Map & Addresses -->
+      <!-- 6. Find us -->
       <section class="section findus-section" id="find-us" aria-labelledby="findus-title">
         <div class="container">
-          <div class="grid-12 align-center">
-            <!-- Locations Info -->
-            <div class="col-5 col-lg-12">
+          <div class="findus-grid">
+            <div class="findus-copy">
               <span class="section-label">05 / Find us</span>
               <h2 class="findus-heading" id="findus-title">
                 <span class="line-mask"><span class="line-mask-inner">FIND US IN</span></span>
@@ -559,69 +346,48 @@
               </h2>
 
               <div class="hours-badge">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                 <span>Monday to Sunday, 8:00 AM to 11:00 PM</span>
               </div>
 
               <div class="locations-list">
-                <!-- Location 1 -->
                 <div class="location-card">
-                  <h3 class="location-name">Jubilee Hills</h3>
-                  <p class="location-address">Shop 4, Ground Floor, Road No. 36, Jubilee Hills, Hyderabad</p>
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Road+No+36+Jubilee+Hills+Hyderabad"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="location-link"
-                  >
+                  <span class="location-index">01</span>
+                  <div class="location-body">
+                    <h3 class="location-name">Jubilee Hills</h3>
+                    <p class="location-address">Shop 4, Ground Floor, Road No. 36, Jubilee Hills, Hyderabad</p>
+                  </div>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Road+No+36+Jubilee+Hills+Hyderabad" target="_blank" rel="noopener noreferrer" class="location-link" aria-label="Directions to Jubilee Hills">
                     <span>Directions</span>
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M5 11l6-6m0 0H6m5 0v5" />
-                    </svg>
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11l6-6m0 0H6m5 0v5" /></svg>
                   </a>
                 </div>
-
-                <!-- Location 2 -->
                 <div class="location-card">
-                  <h3 class="location-name">Banjara Hills</h3>
-                  <p class="location-address">Plot 12, Ground Floor, Road No. 10, Banjara Hills, Hyderabad</p>
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Road+No+10+Banjara+Hills+Hyderabad"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="location-link"
-                  >
+                  <span class="location-index">02</span>
+                  <div class="location-body">
+                    <h3 class="location-name">Banjara Hills</h3>
+                    <p class="location-address">Plot 12, Ground Floor, Road No. 10, Banjara Hills, Hyderabad</p>
+                  </div>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Road+No+10+Banjara+Hills+Hyderabad" target="_blank" rel="noopener noreferrer" class="location-link" aria-label="Directions to Banjara Hills">
                     <span>Directions</span>
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M5 11l6-6m0 0H6m5 0v5" />
-                    </svg>
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11l6-6m0 0H6m5 0v5" /></svg>
                   </a>
                 </div>
-
-                <!-- Location 3 -->
                 <div class="location-card">
-                  <h3 class="location-name">Hitec City</h3>
-                  <p class="location-address">Tower B Courtyard, Mindspace Tech Park, Hitec City, Hyderabad</p>
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Mindspace+Tech+Park+Hitec+City+Hyderabad"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="location-link"
-                  >
+                  <span class="location-index">03</span>
+                  <div class="location-body">
+                    <h3 class="location-name">Hitec City</h3>
+                    <p class="location-address">Tower B Courtyard, Mindspace Tech Park, Hitec City, Hyderabad</p>
+                  </div>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Mindspace+Tech+Park+Hitec+City+Hyderabad" target="_blank" rel="noopener noreferrer" class="location-link" aria-label="Directions to Hitec City">
                     <span>Directions</span>
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M5 11l6-6m0 0H6m5 0v5" />
-                    </svg>
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11l6-6m0 0H6m5 0v5" /></svg>
                   </a>
                 </div>
               </div>
             </div>
 
-            <!-- Leaflet Interactive Map -->
-            <div class="col-7 col-lg-12">
+            <div class="findus-map">
               <div class="map-frame">
                 <div id="cafe-map" role="region" aria-label="Interactive map of cafe locations in Hyderabad"></div>
               </div>
@@ -630,51 +396,32 @@
         </div>
       </section>
 
-      <!-- 7. Offer Section (Espresso Background) -->
+      <!-- 7. Offer -->
       <section class="section offer-section" id="offer" aria-labelledby="offer-title">
         <div class="container">
           <div class="offer-card">
-            <div class="grid-12 align-center">
-              <div class="col-8 col-lg-12">
-                <span class="section-label">06 / Offer</span>
-                <h2 class="offer-heading" id="offer-title">
-                  <span class="line-mask"><span class="line-mask-inner">DON'T MISS YOUR</span></span>
-                  <span class="script-accent offer-script-accent">first sip</span>
-                </h2>
-                <p class="offer-body">
-                  Message us on WhatsApp to get 15% off your first order. Mention this website.
-                </p>
-                <a
-                  href="https://wa.me/919876543210?text=Hi%2C%20I%20saw%20your%20website%20and%20would%20like%20the%2015%25%20off%20first%20order."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-inverted"
-                  id="offer-cta-btn"
-                >
-                  <span class="btn-content">
-                    Claim 15% off on WhatsApp
-                    <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M3 8h10M9 4l4 4-4 4" />
-                    </svg>
-                  </span>
-                </a>
-              </div>
+            <div class="offer-copy">
+              <span class="section-label">06 / Offer</span>
+              <h2 class="offer-heading" id="offer-title">
+                <span class="line-mask"><span class="line-mask-inner">DON'T MISS YOUR</span></span>
+                <span class="script-accent offer-script-accent">first sip</span>
+              </h2>
+              <p class="offer-body">Message us on WhatsApp to get 15% off your first order. Mention this website.</p>
+              <a href="https://wa.me/919876543210?text=Hi%2C%20I%20saw%20your%20website%20and%20would%20like%20the%2015%25%20off%20first%20order." target="_blank" rel="noopener noreferrer" class="btn btn-inverted" id="offer-cta-btn">
+                <span class="btn-content">
+                  Claim 15% off on WhatsApp
+                  <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+                </span>
+              </a>
+            </div>
 
-              <!-- Rotating Circular Offer Badge -->
-              <div class="col-4 col-lg-12 offer-badge-wrap">
+            <div class="offer-visual">
+              <img class="offer-drink" src="/images/drink-matcha.webp" alt="" aria-hidden="true" width="722" height="1100" loading="lazy" decoding="async" />
+              <div class="offer-badge-wrap">
                 <div class="offer-badge-center-icon">15%</div>
-                <svg class="offer-rotating-badge" id="offer-badge" viewBox="0 0 200 200">
-                  <defs>
-                    <path
-                      id="textcircle"
-                      d="M 100, 100 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0"
-                    />
-                  </defs>
-                  <text>
-                    <textPath href="#textcircle" startOffset="0%">
-                      15% OFF FIRST ORDER • DEMO CAFE •
-                    </textPath>
-                  </text>
+                <svg class="offer-rotating-badge" id="offer-badge" viewBox="0 0 200 200" aria-label="15% off first order">
+                  <defs><path id="textcircle" d="M 100, 100 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" /></defs>
+                  <text><textPath href="#textcircle" startOffset="0%">15% OFF FIRST ORDER • DEMO CAFE •</textPath></text>
                 </svg>
               </div>
             </div>
@@ -683,20 +430,14 @@
       </section>
     </main>
 
-    <!-- Footer -->
     <footer class="site-footer" id="footer" role="contentinfo">
       <div class="container">
-        <div class="grid-12">
-          <!-- Column 1: Brand Wordmark -->
-          <div class="col-4 col-lg-12">
+        <div class="footer-grid">
+          <div class="footer-brand">
             <a href="#hero" class="footer-brand-title">Demo Cafe</a>
-            <p class="footer-brand-tagline">
-              Cold drinks brewed fresh to order, in the middle of the city. Specialty iced coffee & calm spaces.
-            </p>
+            <p class="footer-brand-tagline">Cold drinks brewed fresh to order, in the middle of the city. Specialty iced coffee &amp; calm spaces.</p>
           </div>
-
-          <!-- Column 2: Menu links -->
-          <div class="col-3 col-lg-4 col-sm-12">
+          <div>
             <h3 class="footer-col-title">Menu</h3>
             <ul class="footer-links-list">
               <li><a href="#menu" class="footer-link">Iced Caramel Latte</a></li>
@@ -706,9 +447,7 @@
               <li><a href="#menu" class="footer-link">Vanilla Iced Coffee</a></li>
             </ul>
           </div>
-
-          <!-- Column 3: Visit Hours & Phone -->
-          <div class="col-3 col-lg-4 col-sm-12">
+          <div>
             <h3 class="footer-col-title">Visit</h3>
             <ul class="footer-links-list">
               <li class="footer-link">Monday to Sunday</li>
@@ -717,25 +456,14 @@
               <li><a href="mailto:hello@democafe.in" class="footer-link">hello@democafe.in</a></li>
             </ul>
           </div>
-
-          <!-- Column 4: Follow -->
-          <div class="col-2 col-lg-4 col-sm-12">
+          <div>
             <h3 class="footer-col-title">Follow</h3>
             <ul class="footer-links-list">
-              <li>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-link">
-                  Facebook
-                </a>
-              </li>
+              <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a></li>
+              <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-link">Facebook</a></li>
             </ul>
           </div>
         </div>
-
         <div class="footer-bottom">
           <p class="footer-copyright">2026 Demo Cafe. Sample website.</p>
           <p class="footer-copyright">Hyderabad, Telangana</p>
@@ -743,7 +471,6 @@
       </div>
     </footer>
 
-    <!-- Application Script Entry Point -->
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

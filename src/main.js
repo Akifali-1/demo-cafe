@@ -1,6 +1,9 @@
 // Main Entry Point
 // Boot order: fonts, smooth scroll, reveals, then modules
 
+import "@fontsource-variable/bricolage-grotesque";
+import "@fontsource-variable/dm-sans";
+import "@fontsource/pinyon-script";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { initSmoothScroll } from "./modules/smoothScroll.js";
 import { initReveals } from "./modules/reveal.js";
@@ -34,7 +37,7 @@ async function bootApp() {
     initMap();
     initOffer();
 
-    console.log("☕ Demo Cafe initialized smoothly.");
+    
   } catch (err) {
     console.error("Boot error:", err);
   }

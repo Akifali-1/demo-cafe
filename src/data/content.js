@@ -49,9 +49,9 @@ export const content = {
     cups: [
       {
         id: "hero-latte",
-        src: "/images/hero-latte-saucer.png",
-        alt: "Latte with latte art on a saucer, served with a pastry and cinnamon sticks",
-        name: "Latte with Pastry",
+        src: "/images/drink-iced-latte.webp",
+        alt: "Iced latte with swirling milk over ice",
+        name: "Iced Latte",
         speed: 0.16
       }
     ]
@@ -77,10 +77,10 @@ export const content = {
       }
     ],
     image: {
-      src: "/images/feature-pour.webp",
-      alt: "Person holding a tall glass of cold iced coffee with black straw",
-      width: 1200,
-      height: 1500
+      src: "/images/feature-iced-coffee.webp",
+      alt: "Tall glass of iced coffee with swirling milk next to a glass carafe",
+      width: 1100,
+      height: 1375
     }
   },
 
@@ -89,93 +89,21 @@ export const content = {
     heading: "CHOOSE YOUR FLAVOUR",
     scriptAccent: "favourite",
     items: [
-      {
-        id: "caramel-latte",
-        index: "01",
-        name: "Iced Caramel Latte",
-        description: "Double espresso, cold milk, house caramel, poured over ice.",
-        price: 220,
-        cutout: "/images/cutout-caramel-latte.png",
-        alt: "Iced Caramel Latte in glass with golden caramel swirl",
-        badge: "House Favorite"
-      },
-      {
-        id: "cold-brew",
-        index: "02",
-        name: "Cold Brew",
-        description: "Steeped for 18 hours. Smooth and low in acid.",
-        price: 230,
-        cutout: "/images/cutout-cold-brew.png",
-        alt: "Cold Brew coffee in tall glass on ice",
-        badge: "18h Steep"
-      },
-      {
-        id: "matcha-latte",
-        index: "03",
-        name: "Iced Matcha Latte",
-        description: "Ceremonial matcha whisked with oat milk over crushed ice.",
-        price: 250,
-        cutout: "/images/cutout-matcha-latte.png",
-        alt: "Ceremonial iced matcha latte with creamy oat milk layers",
-        badge: "Ceremonial"
-      },
-      {
-        id: "mango-cooler",
-        index: "04",
-        name: "Mango Cooler",
-        description: "Ripe mango, mint, and lime, shaken over ice.",
-        price: 190,
-        cutout: "/images/cutout-mango-cooler.png",
-        alt: "Refreshing ripe mango cooler with fresh mint leaves",
-        badge: "Seasonal Fruit"
-      },
-      {
-        id: "vanilla-iced-coffee",
-        index: "05",
-        name: "Vanilla Iced Coffee",
-        description: "Espresso, vanilla syrup, and cold milk. The classic.",
-        price: 200,
-        cutout: "/images/cutout-vanilla-iced-coffee.png",
-        alt: "Close-up of glass of vanilla iced coffee with condensed milk layers",
-        badge: "Classic"
-      },
-      {
-        id: "iced-americano",
-        index: "06",
-        name: "Iced Americano",
-        description: "Two shots of espresso over cold water. Clean and bold.",
-        price: 160,
-        cutout: "/images/cutout-iced-americano.png",
-        alt: "Glass of bold iced americano coffee with clear ice cubes",
-        badge: "Clean & Bold"
-      },
-      {
-        id: "cold-chocolate",
-        index: "07",
-        name: "Cold Chocolate",
-        description: "Dark cocoa, milk, and a pinch of cinnamon, served chilled.",
-        price: 210,
-        cutout: "/images/cutout-cold-chocolate.png",
-        alt: "Chilled artisanal dark iced chocolate with whipped cream and cocoa dusting",
-        badge: "70% Dark Cocoa"
-      },
-      {
-        id: "lemon-iced-tea",
-        index: "08",
-        name: "Lemon Iced Tea",
-        description: "Black tea brewed cold, fresh lemon, a touch of honey.",
-        price: 150,
-        cutout: "/images/cutout-lemon-iced-tea.png",
-        alt: "Cold black tea served in clear highball glass with lemon garnish",
-        badge: "Cold Steeped"
-      }
+      { id: "caramel-latte", index: "01", name: "Iced Caramel Latte", description: "Double espresso, cold milk, house caramel, poured over ice.", price: 220, cutout: "/images/drink-caramel-latte.webp", alt: "Iced Caramel Latte in a tall glass with a golden caramel swirl", badge: "House Favorite" },
+      { id: "cold-brew", index: "02", name: "Cold Brew", description: "Steeped for 18 hours. Smooth and low in acid.", price: 230, cutout: "/images/drink-cold-brew.webp", alt: "Cold brew coffee in a tall glass with milk swirling through", badge: "18h Steep" },
+      { id: "matcha-latte", index: "03", name: "Iced Matcha Latte", description: "Ceremonial matcha whisked with oat milk over crushed ice.", price: 250, cutout: "/images/drink-matcha.webp", alt: "Iced matcha latte with ice cubes in a clear cup", badge: "Ceremonial" },
+      { id: "mango-cooler", index: "04", name: "Mango Cooler", description: "Ripe mango, mint, and lime, shaken over ice.", price: 190, cutout: "/images/drink-mango-cooler.webp", alt: "Mango cooler in a tall glass with a straw and lime", badge: "Seasonal Fruit" },
+      { id: "vanilla-iced-coffee", index: "05", name: "Vanilla Iced Coffee", description: "Espresso, vanilla syrup, and cold milk. The classic.", price: 200, cutout: "/images/drink-vanilla-iced-coffee.webp", alt: "Vanilla iced coffee in a clear cup with a straw", badge: "Classic" },
+      { id: "iced-latte", index: "06", name: "Iced Latte", description: "Two shots of espresso, cold milk, lots of ice. Simple and smooth.", price: 180, cutout: "/images/drink-iced-latte.webp", alt: "Iced latte with swirling milk over ice", badge: "Everyday" },
+      { id: "cold-chocolate", index: "07", name: "Cold Chocolate", description: "Dark cocoa, milk, and a pinch of cinnamon, served chilled.", price: 210, cutout: "/images/drink-cold-chocolate.webp", alt: "Cold chocolate topped with whipped cream and a cookie", badge: "70% Dark Cocoa" },
+      { id: "lemon-iced-tea", index: "08", name: "Lemon Iced Tea", description: "Black tea brewed cold, fresh lemon, a touch of honey.", price: 150, cutout: "/images/drink-lemon-iced-tea.webp", alt: "Cold black tea in a highball glass with lemon and mint", badge: "Cold Steeped" }
     ]
   },
 
   visit: {
     label: "03 / Visit",
     heading: "WHY YOU SHOULD STOP BY",
-    scriptAccent: "stop by",
+    scriptAccent: "stay a while",
     features: [
       {
         id: "brewed-to-order",
@@ -200,7 +128,7 @@ export const content = {
       src: "/images/visit-cafe-interior.webp",
       alt: "Bright cafe interior with large windows, sunlight, and green plants",
       width: 1200,
-      height: 1500
+      height: 900
     }
   },
 
@@ -209,42 +137,13 @@ export const content = {
     heading: "A COOL CORNER FOR YOUR DAY",
     scriptAccent: "come in",
     tiles: [
-      {
-        id: "g1",
-        caption: "Window seats",
-        src: "/images/gallery-1.webp",
-        alt: "Cozy sunlit cafe table by the window"
-      },
-      {
-        id: "g2",
-        caption: "Morning brew",
-        src: "/images/gallery-2.webp",
-        alt: "Barista pouring brewed coffee into cup with glass pot"
-      },
-      {
-        id: "g3",
-        caption: "Iced matcha",
-        src: "/images/gallery-3.webp",
-        alt: "Refreshing iced matcha latte on outdoor table"
-      },
-      {
-        id: "g4",
-        caption: "The bar",
-        src: "/images/gallery-4.webp",
-        alt: "Interior of stylish cafe with wooden counter and stools placed near window"
-      },
-      {
-        id: "g5",
-        caption: "Late afternoons",
-        src: "/images/gallery-5.webp",
-        alt: "Cheerful diverse friends talking at table with coffee in cafe"
-      },
-      {
-        id: "g6",
-        caption: "Patio",
-        src: "/images/gallery-6.webp",
-        alt: "Sunny outdoor dining area with wooden furniture"
-      }
+      { id: "g1", caption: "Window seats", src: "/images/gallery-1.webp", alt: "Cozy sunlit cafe table by the window with plants" },
+      { id: "g2", caption: "Siphon brew", src: "/images/gallery-2.webp", alt: "Barista pouring siphon-brewed coffee into a cup" },
+      { id: "g3", caption: "Latte art", src: "/images/gallery-latte-art.webp", alt: "Latte art in a teal cup seen from above" },
+      { id: "g4", caption: "The bar", src: "/images/gallery-4.webp", alt: "Stylish cafe interior with a wooden counter and stools" },
+      { id: "g5", caption: "Our baristas", src: "/images/gallery-barista.webp", alt: "Smiling barista in an apron behind the espresso bar" },
+      { id: "g6", caption: "Terrace", src: "/images/gallery-terrace.webp", alt: "Cobblestone cafe terrace with a chalkboard menu" },
+      { id: "g7", caption: "Late afternoons", src: "/images/gallery-5.webp", alt: "Two friends talking over coffee at a wooden table" }
     ]
   },
 
