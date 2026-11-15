@@ -63,12 +63,15 @@ export function initMenuCarousel() {
     return btn;
   });
 
+  gsap.set(itemEls, { xPercent: -50, transformOrigin: '50% 100%' });
+
   function getSpread() {
     const w = window.innerWidth;
-    if (w < 520) return 115;
-    if (w < 820) return 165;
-    if (w < 1100) return 210;
-    return 240;
+    if (w < 400) return 122;
+    if (w < 480) return 132;
+    if (w < 768) return 148;
+    if (w < 1100) return 190;
+    return 230;
   }
 
   // Circular shortest distance so left & right sides are always balanced
@@ -83,16 +86,30 @@ export function initMenuCarousel() {
   function layoutItems(animate = true) {
     const spread = getSpread();
     const dur = animate ? 0.55 : 0;
+    const isMobile = window.innerWidth < 768;
+    const maxVisible = isMobile ? 1 : 2;
 
     itemEls.forEach((el, i) => {
+      const item = items[i];
       const offset = getWrappedOffset(i, activeIndex, total);
       const abs = Math.abs(offset);
-      const visible = abs <= 2;
+      const visible = abs <= maxVisible;
 
       const x = offset * spread;
-      const y = abs === 0 ? -8 : abs === 1 ? 8 : 20;
-      const scale = abs === 0 ? 1.05 : abs === 1 ? 0.68 : 0.45;
-      const opacity = !visible ? 0 : abs === 0 ? 1 : abs === 1 ? 0.55 : 0.25;
+      const y = abs === 0 ? 0 : abs === 1 ? (isMobile ? 8 : 6) : 12;
+
+      let baseScale = abs === 0 ? (isMobile ? 0.98 : 1.08) : abs === 1 ? (isMobile ? 0.56 : 0.66) : 0.44;
+
+      // Make Lemon Iced Tea and Iced Caramel Latte a little smaller on mobile to balance wider aspect ratios
+      if (isMobile && item) {
+        if (item.id === 'lemon-iced-tea') {
+          baseScale *= 0.84;
+        } else if (item.id === 'caramel-latte') {
+          baseScale *= 0.88;
+        }
+      }
+
+      const opacity = !visible ? 0 : abs === 0 ? 1 : abs === 1 ? 0.6 : 0.25;
       const blur = abs === 0 ? 0 : abs === 1 ? 2.5 : 5;
       const zIndex = 10 - abs;
 
@@ -102,7 +119,7 @@ export function initMenuCarousel() {
       gsap.to(el, {
         x,
         y,
-        scale,
+        scale: baseScale,
         opacity,
         filter: blur === 0 ? 'none' : `blur(${blur}px)`,
         duration: dur,
@@ -208,19 +225,23 @@ export function initMenuCarousel() {
 
   // Scroll-driven carousel progression:
   // Starts only when the entire menu section is fully visible and centered on screen (like reference)
-  ScrollTrigger.create({
-    trigger: section,
-    start: 'center center',
-    end: '+=200%',
-    pin: true,
-    pinSpacing: true,
-    scrub: 0.5,
-    onUpdate: (self) => {
-      const targetIndex = Math.min(total - 1, Math.floor(self.progress * total));
-      if (targetIndex !== activeIndex) {
-        goTo(targetIndex, true);
-      }
-    },
+  // Scroll-driven progression is desktop only. On touch / small screens the
+  // section flows normally and users swipe, tap the arrows or the dots.
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 900px) and (min-height: 740px)', () => {
+    const st = ScrollTrigger.create({
+      trigger: section,
+      start: () => 'top top+=' + (document.getElementById('header')?.offsetHeight || 72),
+      end: '+=150%',
+      pin: true,
+      pinSpacing: true,
+      scrub: 0.5,
+      onUpdate: (self) => {
+        const targetIndex = Math.min(total - 1, Math.floor(self.progress * total));
+        if (targetIndex !== activeIndex) goTo(targetIndex, true);
+      },
+    });
+    return () => st.kill();
   });
 
   // Relayout on resize

@@ -48,15 +48,24 @@ h1, h2, h3, h4 {
 h1 {
   font-size: var(--fs-h1);
   line-height: var(--lh-h1);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
 }
 
 h2 {
   font-size: var(--fs-h2);
   line-height: var(--lh-h2);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
+}
+
+/* Script accent sitting under a heading, never overlapping it */
+h2 .script-accent {
+  display: block;
+  width: fit-content;
+  font-size: 1.1em;
+  line-height: 1.1;
+  margin: 0.08em 0 0 0.04em;
 }
 
 h3 {
